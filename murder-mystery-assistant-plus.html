@@ -15,11 +15,16 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-user-select: none; /* Evita la selección en iOS */
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none; /* Evita la copia o selección */
         }
 
         body {
             font-family: 'MinecraftTen', sans-serif;
             height: 100vh;
+            overflow: auto; /* Permite scroll */
             background-image: url('https://raw.githubusercontent.com/JeamDeveloper/Lightning-Cube/b2ae54e26ec7729798c9374485232e057360dd8e/resources/images/background/MM-Addon-Showcase-01.jpg');
             background-size: cover;
             background-position: center;
@@ -28,22 +33,26 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            overflow: hidden;
+            position: relative;
         }
 
-        /* Fondo oscurecido */
+        /* Fondo oscurecido dinámico */
         .overlay {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0);
+            pointer-events: none;
+            z-index: 5;
+            transition: background-color 0.3s ease;
         }
 
         .content {
             z-index: 10;
             position: relative;
+            padding-top: 20px;
         }
 
         /* Estilo de los encabezados */
@@ -53,7 +62,7 @@
         }
 
         h2 {
-            font-size: 1.5em; /* Tamaño aumentado para "Assistant +" */
+            font-size: 1.5em;
             margin-bottom: 1em;
         }
 
@@ -63,28 +72,33 @@
             align-items: center;
             justify-content: center;
             background-image: url('https://raw.githubusercontent.com/JeamDeveloper/Lightning-Cube/b2ae54e26ec7729798c9374485232e057360dd8e/resources/images/buttons/GreenLauncherButton.png');
-            background-size: cover;
+            background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
             color: white;
-            font-size: 1em;
+            font-size: 0.5em; /* Tamaño reducido (2 veces más pequeño) */
             cursor: pointer;
-            transition: background-image 0.2s ease;
             width: 160px;
             height: 50px;
+            transition: background-image 0.2s ease;
         }
     </style>
 </head>
 <body>
-    <div class="overlay"></div> <!-- Fondo oscurecido -->
+    <div class="overlay" id="overlay"></div> <!-- Fondo oscurecido -->
     <div class="content">
         <h1>Murder Mystery</h1>
         <h2>Assistant +</h2>
         <div class="b1" id="downloadButton">Descargar</div>
     </div>
     <script>
-        // Obtenemos el botón
+        // Desactivar selección de texto y acciones de copiar/pegar
+        document.addEventListener('contextmenu', (event) => event.preventDefault());
+        document.addEventListener('selectstart', (event) => event.preventDefault());
+
+        // Obtenemos el botón y el overlay
         const downloadButton = document.getElementById('downloadButton');
+        const overlay = document.getElementById('overlay');
 
         // URLs de las imágenes
         const normalImage = 'https://raw.githubusercontent.com/JeamDeveloper/Lightning-Cube/b2ae54e26ec7729798c9374485232e057360dd8e/resources/images/buttons/GreenLauncherButton.png';
@@ -106,6 +120,14 @@
         downloadButton.addEventListener('mouseleave', setNormalImage);
         downloadButton.addEventListener('touchstart', setPressedImage);
         downloadButton.addEventListener('touchend', setNormalImage);
+
+        // Función para oscurecer el fondo progresivamente con el scroll
+        window.addEventListener('scroll', () => {
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+            const scrollPosition = window.scrollY;
+            const darkness = Math.min(scrollPosition / maxScroll, 1);
+            overlay.style.backgroundColor = `rgba(0, 0, 0, ${darkness})`;
+        });
     </script>
 </body>
 </html>
