@@ -74,6 +74,11 @@ body {
     font-family: 'MinecraftTen', sans-serif; /* Usar la fuente MinecraftTen */
 }
 
+/* Cambiar la imagen de fondo cuando se presiona (cuando el usuario toca el botón) */
+.download-text:active {
+    background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/5aff47a73f83947efecd99b74e50855641235ed6/resources/images/buttons/GreenPressesLauncherButton.png?raw=true');
+}
+
 /* Cambiar la imagen de fondo cuando se presiona */
 .download-text:active {
     background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/5aff47a73f83947efecd99b74e50855641235ed6/resources/images/buttons/GreenPressesLauncherButton.png?raw=true');
