@@ -50,7 +50,7 @@ body {
 /* Estilo para el título */
 .addon-title {
     text-align: center;
-    font-size: 26px; /* 26dp en px para la fuente */
+    font-size: 40px; /* 26dp en px para la fuente */
     z-index: 1;
     position: relative;
     margin-bottom: 20px; /* Para separar el título del texto de descarga */
@@ -59,7 +59,7 @@ body {
 /* Estilo para el texto de descarga como botón con imagen de fondo */
 .launcher_button {
     margin-top: 10px;
-    font-size: 20px; /* 20dp en px para la fuente */
+    font-size: 32px; /* 20dp en px para la fuente */
     cursor: pointer;
     text-align: center;
     background: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/5aff47a73f83947efecd99b74e50855641235ed6/resources/images/buttons/GreenLauncherButton.png?raw=true') no-repeat center center;
