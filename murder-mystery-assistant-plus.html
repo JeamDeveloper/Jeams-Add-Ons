@@ -31,6 +31,9 @@
         background-position: center;
         background-repeat: no-repeat;
         filter: brightness(0.5); /* Oscurecer solo la imagen de fondo */
+        position: absolute; /* Asegura que la imagen de fondo quede en su lugar */
+        top: 0;
+        left: 0;
     }
 
     /* Imagen de texto dentro del contenedor de fondo */
@@ -41,6 +44,7 @@
         transform: translate(-50%, -50%);
         max-width: 80%;
         height: auto;
+        z-index: 1; /* Asegura que la imagen de texto esté por encima de la imagen de fondo */
     }
 
     /* Estilo del siguiente contenido de la página */
@@ -57,12 +61,11 @@
 </head>
 <body>
     <div class="background-container">
-        <div class="background-image">
-            <img 
-            class="text-image"
-            src="https://github.com/JeamDeveloper/Lightning-Cube/blob/ac0fac03218def6f03d88e9258f257b2a408da2e/resources/images/background/MM-Addon-Title-01.PNG?raw=true" 
-            alt="MM Addon Title">
-        </div>
+        <div class="background-image"></div> <!-- Imagen de fondo oscurecida -->
+        <img 
+        class="text-image"
+        src="https://github.com/JeamDeveloper/Lightning-Cube/blob/ac0fac03218def6f03d88e9258f257b2a408da2e/resources/images/background/MM-Addon-Title-01.PNG?raw=true" 
+        alt="MM Addon Title"> <!-- Imagen de texto visible -->
     </div>
     <div class="main-content">
         <h2>Contenido adicional aquí...</h2>
