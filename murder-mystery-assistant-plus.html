@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página con Fuente Personalizada</title>
+    <title>Página con Fondo Oscurecido</title>
     <style>
         /* Cargar la fuente personalizada desde el archivo .otf */
         @font-face {
@@ -23,10 +23,16 @@
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
+            overflow: hidden; /* Elimina la barra de desplazamiento */
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* Capa oscura encima del fondo */
-        body::after {
+        /* Capa oscura encima del fondo sin dejar espacios visibles */
+        body::before {
             content: '';
             position: absolute;
             top: 0;
@@ -37,10 +43,17 @@
             z-index: -1; /* Asegurarse de que esté detrás del contenido */
         }
 
+        /* Desactivar el rebote al hacer scroll rápido */
+        html, body {
+            overflow: hidden;
+            height: 100%;
+        }
+
         /* Estilo para los elementos dentro de la página */
         h1 {
             text-align: center;
-            margin-top: 20%;
+            z-index: 1;
+            position: relative;
         }
     </style>
 </head>
