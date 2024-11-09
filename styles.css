@@ -59,7 +59,7 @@ body {
 /* Estilo para el texto de descarga como botón con imagen de fondo */
 .launcher_button {
     margin-top: 10px;
-    font-size: 32px; /* 20dp en px para la fuente */
+    font-size: 20px; /* 20dp en px para la fuente */
     cursor: pointer;
     text-align: center;
     background: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/5aff47a73f83947efecd99b74e50855641235ed6/resources/images/buttons/GreenLauncherButton.png?raw=true') no-repeat center center;
@@ -73,5 +73,5 @@ body {
     text-decoration: none; /* Sin subrayado */
     border: none; /* Sin bordes */
     font-family: 'MinecraftTen', sans-serif; /* Usar la fuente MinecraftTen */
-    transition: background 0.3s ease; /* Transición suave al cambiar la imagen de fondo */
+    padding: 0; /* Sin padding predeterminado */
 }
