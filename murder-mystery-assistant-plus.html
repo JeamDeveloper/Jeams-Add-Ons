@@ -23,13 +23,14 @@
     /* Contenedor de la imagen de fondo */
     .background-container {
         width: 100%; /* Ancho de la pantalla */
+        height: 0;
+        padding-top: 56.25%; /* Relación 16:9 (alto:ancho), 9 / 16 = 0.5625 */
         position: relative;
         overflow: hidden;
-        background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/5a424be5ba459a5043c3fddbadc398c884e0d8af/resources/images/background/MM-Addon-Showcase-01.jpg?raw=true'); /* Nuevo fondo */
+        background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/5a424be5ba459a5043c3fddbadc398c884e0d8af/resources/images/background/MM-Addon-Showcase-01.jpg?raw=true'); /* Fondo */
         background-size: cover; /* Mantener proporción de la imagen */
         background-position: center;
         background-repeat: no-repeat;
-        padding-top: 10%; /* Desplazar hacia arriba el contenido */
     }
 
     /* Imagen de texto dentro del contenedor de fondo */
