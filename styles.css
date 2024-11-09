@@ -65,7 +65,7 @@ body {
 /* Nuevo estilo de texto default-texto */
 .default-texto {
     font-family: 'MinecraftSeven', sans-serif;
-    font-size: 30px; /* Tamaño 30dp */
+    font-size: 20px; /* Tamaño 20 */
     color: white;
     text-align: center;
     margin: 10px 0; /* Espaciado superior e inferior */
