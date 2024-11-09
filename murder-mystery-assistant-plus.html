@@ -43,7 +43,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.2); /* Oscurecimiento inicial del 20% */
+            background: rgba(25, 25, 25, 0.2); /* Oscurecimiento inicial al 20% con #191919 */
             pointer-events: none;
             z-index: 5;
             transition: background-color 0.3s ease;
@@ -79,24 +79,33 @@
             background-repeat: no-repeat;
             background-position: center;
             color: white;
-            font-size: 1.2em; /* Aumenta el tamaño del texto */
+            font-size: 1.2em;
             cursor: pointer;
-            width: 200px; /* Ancho del botón */
-            height: 60px; /* Altura del botón */
+            width: 200px;
+            height: 60px;
             padding-left: 10px;
             padding-right: 10px;
             margin-left: 10px;
             margin-right: 10px;
             transition: background-image 0.2s ease;
         }
+
+        /* Estilo para el texto pequeño adicional */
+        .extra-text {
+            margin-top: 100px; /* Espacio grande después del botón */
+            font-size: 0.8em;
+            color: #ccc; /* Color gris claro para diferenciar */
+            text-align: center;
+        }
     </style>
 </head>
 <body>
-    <div class="overlay" id="overlay"></div> <!-- Fondo oscurecido -->
+    <div class="overlay" id="overlay"></div>
     <div class="content">
         <h1>Murder Mystery</h1>
         <h2>Assistant +</h2>
         <div class="b1" id="downloadButton">Descargar</div>
+        <p class="extra-text">Aquí puedes poner tu texto adicional</p>
     </div>
     <script>
         // Desactivar selección de texto y acciones de copiar/pegar
@@ -128,12 +137,13 @@
         downloadButton.addEventListener('touchstart', setPressedImage);
         downloadButton.addEventListener('touchend', setNormalImage);
 
-        // Función para oscurecer el fondo progresivamente con el scroll
+        // Función para oscurecer el fondo progresivamente con el scroll hasta un máximo de #191919
         window.addEventListener('scroll', () => {
             const maxScroll = document.body.scrollHeight - window.innerHeight;
             const scrollPosition = window.scrollY;
-            const darkness = 0.2 + Math.min(scrollPosition / maxScroll, 0.8); // Comienza con 0.2 y aumenta hasta 1.0
-            overlay.style.backgroundColor = `rgba(0, 0, 0, ${darkness})`;
+            const maxDarkness = 0.8; // Oscurecimiento máximo
+            const darkness = 0.2 + Math.min(scrollPosition / maxScroll * 0.6, maxDarkness);
+            overlay.style.backgroundColor = `rgba(25, 25, 25, ${darkness})`;
         });
     </script>
 </body>
