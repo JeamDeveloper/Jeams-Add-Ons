@@ -4,87 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página con Fondo Oscurecido y Texto de Descarga</title>
-    <style>
-        /* Cargar la fuente personalizada desde el archivo .otf */
-        @font-face {
-            font-family: 'MinecraftTen';
-            src: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/0cca838d7d305ca0f2bd435159549f2493fde5fc/resources/fonts/MinecraftTen.otf?raw=true') format('opentype');
-        }
-
-        /* Aplicar la fuente a todo el cuerpo */
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            font-family: 'MinecraftTen', sans-serif;
-            color: white;
-            background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/f69418991959d3e14dfebefdc162dcc0ad8a75c9/resources/images/background/MM-Addon-Showcase-01.jpg?raw=true');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        /* Capa oscura encima del fondo sin dejar espacios visibles */
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Oscurecer el fondo con un filtro semitransparente */
-            z-index: -1; /* Asegurarse de que esté detrás del contenido */
-        }
-
-        /* Desactivar el rebote al hacer scroll rápido */
-        html, body {
-            overflow: hidden;
-            height: 100%;
-        }
-
-        /* Estilo para el título */
-        .addon-title {
-            text-align: center;
-            font-size: 26px; /* 26dp en px para la fuente */
-            z-index: 1;
-            position: relative;
-            margin-bottom: 20px; /* Para separar el título del texto de descarga */
-        }
-
-        /* Estilo para el texto de descarga como botón con imagen de fondo */
-        .download-text {
-            margin-top: 10px;
-            font-size: 20px; /* 20dp en px para la fuente */
-            cursor: pointer;
-            text-align: center;
-            background: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/5aff47a73f83947efecd99b74e50855641235ed6/resources/images/buttons/GreenLauncherButton.png?raw=true') no-repeat center center;
-            background-size: cover;
-            color: white;
-            width: 250px;
-            height: 50px; /* Ajustado al tamaño del contenido */
-            display: inline-block;
-            line-height: 50px; /* Alineación vertical del texto */
-            text-decoration: none; /* Sin subrayado */
-            border: none; /* Sin bordes */
-            font-family: 'MinecraftTen', sans-serif; /* Usar la fuente MinecraftTen */
-        }
-
-        /* Cambiar la imagen de fondo cuando se presiona */
-        .download-text:active {
-            background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/5aff47a73f83947efecd99b74e50855641235ed6/resources/images/buttons/GreenPressesLauncherButton.png?raw=true');
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlace al archivo CSS separado -->
 </head>
 <body>
-    <div class="addon-title">Murder Myster Assistant +</div>
-    <div class="download-text" id="download-text" onclick="window.location.href='https://link.descarga.com'">Descargar</div>
+    <div class="background-container">
+        <div class="addon-title">Murder Myster Assistant +</div>
+        <div class="download-text" id="download-text" onclick="window.location.href='https://link.descarga.com'">Descargar</div>
+    </div>
 </body>
 </html>
