@@ -16,33 +16,31 @@
     /* Contenedor de la imagen de fondo */
     .background-container {
         width: 100%;
-        height: 100vh;
+        height: 100vh; /* Ocupa toda la pantalla inicialmente */
         position: relative;
         overflow: hidden;
     }
 
-    /* Imagen de fondo con ajuste de tamaño y transición */
+    /* Imagen de fondo con ajuste de tamaño */
     .background-image {
         width: 100%;
         height: 100%;
         background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 1) 100%), 
                           url('https://github.com/JeamDeveloper/Lightning-Cube/blob/ac0fac03218def6f03d88e9258f257b2a408da2e/resources/images/background/MM-Addon-Showcase-01.jpg?raw=true');
-        background-size: contain; /* Ajuste de tamaño para mantener la proporción */
+        background-size: cover; /* Ocupa toda la pantalla, manteniendo la proporción */
         background-position: center;
         background-repeat: no-repeat;
-        background-attachment: fixed; /* Efecto paralaje */
         filter: brightness(0.5); /* Oscurecer la imagen */
     }
 
-    /* Contenido del contenedor de la imagen de fondo */
-    .overlay-content {
+    /* Imagen de texto dentro del contenedor de fondo */
+    .text-image {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 80%;
-        max-width: 600px;
-        transition: opacity 0.3s ease; /* Transición suave de opacidad */
+        max-width: 80%;
+        height: auto;
     }
 
     /* Estilo del siguiente contenido de la página */
@@ -59,9 +57,9 @@
 </head>
 <body>
     <div class="background-container">
-        <div class="background-image"></div>
-        <div class="overlay-content" id="overlayContent">
+        <div class="background-image">
             <img 
+            class="text-image"
             src="https://github.com/JeamDeveloper/Lightning-Cube/blob/ac0fac03218def6f03d88e9258f257b2a408da2e/resources/images/background/MM-Addon-Title-01.PNG?raw=true" 
             alt="MM Addon Title">
         </div>
@@ -69,19 +67,5 @@
     <div class="main-content">
         <h2>Contenido adicional aquí...</h2>
     </div>
-
-    <script>
-        // JavaScript para controlar la opacidad del contenido de overlay al hacer scroll
-        const overlayContent = document.getElementById('overlayContent');
-
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            const windowHeight = window.innerHeight;
-
-            // Ajustar la opacidad del contenido en función del scroll
-            const opacity = Math.max(0, 1 - scrollY / windowHeight);
-            overlayContent.style.opacity = opacity;
-        });
-    </script>
 </body>
 </html>
