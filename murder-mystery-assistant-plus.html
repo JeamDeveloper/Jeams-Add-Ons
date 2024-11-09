@@ -21,18 +21,18 @@
             user-select: none; /* Evita la copia o selección */
         }
 
-        body {
-            font-family: 'MinecraftTen', sans-serif;
-            height: 100vh;
+        html, body {
+            width: 100%;
+            height: 100%;
             overflow: auto; /* Permite scroll */
             background-image: url('https://raw.githubusercontent.com/JeamDeveloper/Lightning-Cube/b2ae54e26ec7729798c9374485232e057360dd8e/resources/images/background/MM-Addon-Showcase-01.jpg');
             background-size: cover;
             background-position: center;
             color: white;
+            font-family: 'MinecraftTen', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
             position: relative;
         }
 
@@ -43,27 +43,30 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0);
+            background: rgba(0, 0, 0, 0.2); /* Oscurecimiento inicial del 20% */
             pointer-events: none;
             z-index: 5;
             transition: background-color 0.3s ease;
         }
 
+        /* Centrado del contenido */
         .content {
             z-index: 10;
-            position: relative;
-            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
         }
 
         /* Estilo de los encabezados */
         h1 {
             font-size: 2em;
-            margin-bottom: 0.2em;
+            margin: 0;
         }
 
         h2 {
             font-size: 1.5em;
-            margin-bottom: 1em;
         }
 
         /* Estilo del botón */
@@ -125,7 +128,7 @@
         window.addEventListener('scroll', () => {
             const maxScroll = document.body.scrollHeight - window.innerHeight;
             const scrollPosition = window.scrollY;
-            const darkness = Math.min(scrollPosition / maxScroll, 1);
+            const darkness = 0.2 + Math.min(scrollPosition / maxScroll, 0.8); // Comienza con 0.2 y aumenta hasta 1.0
             overlay.style.backgroundColor = `rgba(0, 0, 0, ${darkness})`;
         });
     </script>
