@@ -53,24 +53,24 @@
         /* Estilo para el título */
         .addon-title {
             text-align: center;
-            font-size: 18px; /* 18dp en px para la fuente */
+            font-size: 26px; /* 26dp en px para la fuente */
             z-index: 1;
             position: relative;
+            margin-bottom: 20px; /* Para separar el título del texto de descarga */
         }
 
         /* Estilo para el texto de descarga */
         .download-text {
             margin-top: 10px;
-            font-size: 12px; /* 12dp en px para la fuente */
+            font-size: 20px; /* 20dp en px para la fuente */
             cursor: pointer;
             text-align: center;
             background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/d6f99ca966ee13a823eec3cf1cd9665320a42e88/resources/images/buttons/GreenLauncherButton.png?raw=true');
             background-size: cover;
             width: 250px;
-            height: 60px;
+            height: 50px; /* Reducido para hacer el botón menos alto */
             display: inline-block;
-            line-height: 60px;
-            text-align: center;
+            line-height: 50px; /* Alineación vertical del texto */
         }
 
         /* Cambiar la imagen de fondo cuando se presiona */
@@ -81,6 +81,26 @@
 </head>
 <body>
     <div class="addon-title">Murder Myster Assistant +</div>
-    <div class="download-text" onclick="window.location.href='https://link.descarga.com'">Descargar</div>
+    <div class="download-text" id="download-text" onclick="window.location.href='https://link.descarga.com'">Descargar</div>
+
+    <script>
+        // Obtener el elemento de descarga
+        const downloadText = document.getElementById('download-text');
+
+        // Función para cambiar la imagen cuando se presiona o toca
+        downloadText.addEventListener('mousedown', function() {
+            downloadText.style.backgroundImage = 'url("https://github.com/JeamDeveloper/Lightning-Cube/blob/d6f99ca966ee13a823eec3cf1cd9665320a42e88/resources/images/buttons/GreenPressesLauncherButton.png?raw=true")';
+        });
+
+        // Función para volver a la imagen original cuando se suelta el clic o al dejar de tocar
+        downloadText.addEventListener('mouseup', function() {
+            downloadText.style.backgroundImage = 'url("https://github.com/JeamDeveloper/Lightning-Cube/blob/d6f99ca966ee13a823eec3cf1cd9665320a42e88/resources/images/buttons/GreenLauncherButton.png?raw=true")';
+        });
+
+        // Asegurarse de que la imagen vuelva a su estado original cuando se deje de tocar
+        downloadText.addEventListener('mouseleave', function() {
+            downloadText.style.backgroundImage = 'url("https://github.com/JeamDeveloper/Lightning-Cube/blob/d6f99ca966ee13a823eec3cf1cd9665320a42e88/resources/images/buttons/GreenLauncherButton.png?raw=true")';
+        });
+    </script>
 </body>
 </html>
