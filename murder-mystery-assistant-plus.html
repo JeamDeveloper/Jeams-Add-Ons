@@ -31,30 +31,61 @@
         background-position: center;
         background-repeat: no-repeat;
         filter: brightness(0.5); /* Oscurecer la imagen */
+        position: absolute;
+        top: 0;
+        left: 0;
     }
 
-    /* Imagen frontal (Logo o título) */
-    .overlay-image {
+    /* Contenido del contenedor de la imagen de fondo */
+    .overlay-content {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 80%;
         max-width: 600px;
-        z-index: 1;
+        transition: opacity 0.3s ease; /* Transición suave de opacidad */
+    }
+
+    /* Estilo del siguiente contenido de la página */
+    .main-content {
+        height: 100vh;
+        background-color: #000;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
     }
 </style>
 </head>
 <body>
     <div class="background-container">
         <div class="background-image"></div>
-        <img 
-        class="overlay-image" 
-        src="https://github.com/JeamDeveloper/Lightning-Cube/blob/ac0fac03218def6f03d88e9258f257b2a408da2e/resources/images/background/MM-Addon-Title-01.PNG?raw=true" 
-        alt="MM Addon Title">
+        <div class="overlay-content" id="overlayContent">
+            <img 
+            src="https://github.com/JeamDeveloper/Lightning-Cube/blob/ac0fac03218def6f03d88e9258f257b2a408da2e/resources/images/background/MM-Addon-Title-01.PNG?raw=true" 
+            alt="MM Addon Title">
+        </div>
     </div>
-    <div style="height: 100vh; background-color: #000;">
-        <h2 style="color: #fff; text-align: center; padding-top: 20px;">Contenido adicional aquí...</h2>
+    <div class="main-content">
+        <h2>Contenido adicional aquí...</h2>
     </div>
+
+    <script>
+        // JavaScript para controlar la opacidad del contenido de overlay al hacer scroll
+        const overlayContent = document.getElementById('overlayContent');
+
+        window.addEventListener('scroll', () => {
+            // Calcular la posición de scroll
+            const scrollY = window.scrollY;
+            const windowHeight = window.innerHeight;
+
+            // Ajustar la opacidad en función de la posición del scroll
+            // Cuando scrollY es 0, la opacidad es 1 (visible); cuando scrollY es igual a la altura de la ventana, la opacidad es 0 (invisible)
+            const opacity = Math.max(0, 1 - scrollY / windowHeight);
+            overlayContent.style.opacity = opacity;
+        });
+    </script>
 </body>
 </html>
