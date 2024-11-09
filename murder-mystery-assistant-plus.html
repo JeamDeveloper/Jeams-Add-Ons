@@ -5,12 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Lightning Cube Showcase</title>
 <style>
+    /* Importar la fuente MinecraftTen */
+    @font-face {
+        font-family: 'MinecraftTen';
+        src: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/7ea2db6cb5198f284a4c777cd31d614429d6147d/resources/fonts/MinecraftTen.otf?raw=true') format('truetype');
+    }
+
     body, html {
         margin: 0;
         padding: 0;
         height: 100%;
         overflow-x: hidden;
         background-color: #000; /* Fondo negro de la página */
+        font-family: 'MinecraftTen', sans-serif; /* Aplicar la fuente a todo el cuerpo de la página */
     }
 
     /* Contenedor de la imagen de fondo */
@@ -57,6 +64,31 @@
         align-items: center;
         font-size: 24px;
     }
+
+    /* Estilo del botón */
+    .button {
+        display: inline-block;
+        padding: 10px 20px; /* Espaciado del botón */
+        font-size: 16px;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/7ea2db6cb5198f284a4c777cd31d614429d6147d/resources/images/buttons/button_borderless_green.png?raw=true');
+        background-size: contain; /* Ajusta el tamaño de la imagen al tamaño del botón */
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: background 0.2s ease; /* Transición suave cuando cambia la imagen */
+        margin-top: 20px; /* Espacio entre el contenido y el botón */
+        font-family: 'MinecraftTen', sans-serif; /* Aplicar la fuente al botón */
+    }
+
+    /* Estilo cuando el botón es presionado (estado :active) */
+    .button:active {
+        background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/7ea2db6cb5198f284a4c777cd31d614429d6147d/resources/images/buttons/button_borderless_greenpressed.png?raw=true');
+    }
 </style>
 </head>
 <body>
@@ -69,6 +101,8 @@
     </div>
     <div class="main-content">
         <h2>Contenido adicional aquí...</h2>
+        <!-- Botón de descarga -->
+        <button class="button">Descargar</button>
     </div>
 </body>
 </html>
