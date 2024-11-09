@@ -1,96 +1,71 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Lightning Cube Showcase</title>
-<style>
-    /* Importar la fuente MinecraftTen */
-    @font-face {
-        font-family: 'MinecraftTen';
-        src: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/7ea2db6cb5198f284a4c777cd31d614429d6147d/resources/fonts/MinecraftTen.otf?raw=true') format('truetype');
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightning Cube Showcase</title>
+    <style>
+        /* Importa la fuente desde tu URL */
+        @font-face {
+            font-family: 'MinecraftTen';
+            src: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/b2ae54e26ec7729798c9374485232e057360dd8e/resources/fonts/MinecraftTen.otf') format('truetype');
+        }
 
-    body, html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        overflow-x: hidden;
-        background-color: #000; /* Fondo negro de la página */
-        font-family: 'MinecraftTen', sans-serif; /* Aplicar la fuente a todo el cuerpo de la página */
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* Contenedor de la imagen de fondo */
-    .background-container {
-        width: 100%;
-        position: relative;
-        overflow: hidden;
-    }
+        body {
+            font-family: 'MinecraftTen', sans-serif;
+            height: 100vh;
+            background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/b2ae54e26ec7729798c9374485232e057360dd8e/resources/images/background/MM-Addon-Showcase-01.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
 
-    /* Imagen de fondo con ajuste de tamaño y filtro de oscuridad */
-    .background-image {
-        width: 100%;
-        height: 100%;
-        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 1) 100%), 
-                          url('https://github.com/JeamDeveloper/Lightning-Cube/blob/ac0fac03218def6f03d88e9258f257b2a408da2e/resources/images/background/MM-Addon-Showcase-01.jpg?raw=true');
-        background-size: cover; /* Ocupa toda la pantalla, manteniendo la proporción */
-        background-position: center;
-        background-repeat: no-repeat;
-        filter: brightness(0.5); /* Oscurecer solo la imagen de fondo */
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
+        .content {
+            z-index: 10;
+        }
 
-    /* Imagen de texto dentro del contenedor de fondo */
-    .text-image {
-        position: absolute;
-        top: 45%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 90%; /* Ancho máximo del 90% de la pantalla */
-        max-width: 1000px; /* Ancho máximo absoluto para evitar que sea demasiado grande */
-        height: auto;
-        z-index: 1; /* Asegura que la imagen de texto esté por encima de la imagen de fondo */
-    }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.5em;
+        }
 
-    /* Estilo del texto como botón */
-    .text-button {
-        position: absolute;
-        top: 70%; /* Posicionarlo debajo de text-image */
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: #fff;
-        font-size: 14px; /* Tamaño del texto reducido a la mitad */
-        font-weight: bold;
-        cursor: pointer;
-        text-transform: uppercase;
-        text-shadow: 2px 2px 4px #000;
-        z-index: 2;
-        background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/602540dcd45ac6048461d703a073e8da4aaed9f3/resources/images/buttons/GreenLauncherButton.png?raw=true');
-        background-size: cover;
-        background-position: center;
-        padding: 15px 50px;
-        border: none;
-        outline: none;
-        width: 200px; /* Ancho del botón para ajustarlo a la pantalla */
-        height: 60px;
-        font-family: 'MinecraftTen', sans-serif; /* Usar la fuente MinecraftTen */
-    }
+        p {
+            font-size: 1.5em;
+        }
 
-    .text-button:active {
-        background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/6ebcebfd57fed2d19589ee3232f941ec7675b849/resources/images/buttons/GreenPressesLauncherButton.png?raw=true');
-    }
-</style>
+        .b1 {
+            display: inline-block;
+            padding: 20px 40px;
+            background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/b2ae54e26ec7729798c9374485232e057360dd8e/resources/images/buttons/GreenLauncherButton.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            color: white;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            transition: background-image 0.2s ease;
+        }
+
+        .b1:active {
+            background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/b2ae54e26ec7729798c9374485232e057360dd8e/resources/images/buttons/GreenPressesLauncherButton.png');
+        }
+    </style>
 </head>
 <body>
-    <div class="background-container">
-        <div class="background-image"></div> <!-- Imagen de fondo -->
-        <img 
-        class="text-image"
-        src="https://github.com/JeamDeveloper/Lightning-Cube/blob/ac0fac03218def6f03d88e9258f257b2a408da2e/resources/images/background/MM-Addon-Title-01.PNG?raw=true" 
-        alt="MM Addon Title"> <!-- Imagen de texto visible -->
-        <button class="text-button">Descargar</button>
+    <div class="content">
+        <h1>Bienvenido a Lightning Cube</h1>
+        <p class="b1">Haz clic o mantén presionado este texto.</p>
     </div>
 </body>
 </html>
