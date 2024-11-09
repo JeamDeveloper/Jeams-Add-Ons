@@ -54,42 +54,30 @@
         z-index: 1; /* Asegura que la imagen de texto esté por encima de la imagen de fondo */
     }
 
-    /* Estilo del botón con imagen como fondo */
-    .button {
+    /* Estilo del texto como botón */
+    .text-button {
         display: inline-block;
-        padding: 20px 40px; /* Hacer el botón más grande */
-        font-size: 20px; /* Tamaño del texto un poco más pequeño que el del botón */
+        padding: 20px 40px; /* Hacer el texto más grande */
+        font-size: 20px; /* Tamaño del texto */
         color: white;
         text-align: center;
-        text-decoration: none;
         cursor: pointer;
-        border: none; /* Eliminar borde por defecto */
         background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/602540dcd45ac6048461d703a073e8da4aaed9f3/resources/images/buttons/GreenLauncherButton.png?raw=true'); /* Imagen del botón */
-        background-size: 100% 100%; /* Estirar la imagen de fondo para que ocupe todo el botón */
+        background-size: 100% 100%; /* Estirar la imagen de fondo para que ocupe todo el texto */
         position: relative;
         transition: all 0.3s ease; /* Transición suave para efectos */
-        margin-top: 20px; /* Espacio entre la imagen de texto y el botón */
-        font-family: 'MinecraftTen', sans-serif; /* Aplicar la fuente al botón */
+        margin-top: 20px; /* Espacio entre la imagen de texto y el texto como botón */
+        font-family: 'MinecraftTen', sans-serif; /* Aplicar la fuente al texto */
     }
 
-    /* Efecto cuando el botón es presionado (estado :active) */
-    .button:active {
+    /* Efecto cuando el texto es presionado (estado :active) */
+    .text-button:active {
         background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/602540dcd45ac6048461d703a073e8da4aaed9f3/resources/images/buttons/GreenPressesLauncherButton.png?raw=true'); /* Cambiar imagen cuando se presiona */
     }
 
-    /* Efecto cuando el botón está en hover (sobre el botón) */
-    .button:hover {
+    /* Efecto cuando el texto está en hover (sobre el texto) */
+    .text-button:hover {
         background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/602540dcd45ac6048461d703a073e8da4aaed9f3/resources/images/buttons/GreenPressesLauncherButton.png?raw=true'); /* Cambiar imagen en hover */
-    }
-
-    /* Estilo del texto dentro del botón */
-    .button-text {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 18px; /* Hacer el texto un poco más pequeño que el tamaño del botón */
-        z-index: 2; /* Asegura que el texto esté encima de la imagen */
     }
 </style>
 </head>
@@ -101,9 +89,8 @@
         src="https://github.com/JeamDeveloper/Lightning-Cube/blob/ac0fac03218def6f03d88e9258f257b2a408da2e/resources/images/background/MM-Addon-Title-01.PNG?raw=true" 
         alt="MM Addon Title"> <!-- Imagen de texto visible -->
     </div>
-    <!-- Botón de descarga con texto encima de la imagen -->
-    <button class="button">
-        <span class="button-text">Descargar</span>
-    </button>
+
+    <!-- Texto con imagen de fondo, que actúa como un botón -->
+    <span class="text-button">Descargar</span>
 </body>
 </html>
