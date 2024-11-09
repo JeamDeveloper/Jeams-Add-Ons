@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Descarga el add-on 'Murder Mystery Assistant +' para Minecraft y mejora tu experiencia en el juego con nuevas herramientas y funciones.">
     <title>Murder Mystery Assistant + | Add-on Minecraft</title>
-    <link href="https://github.com/JeamDeveloper/Lightning-Cube/blob/a0ef07e0c01336abafafb5778bdfe08b641ed380/resources/fonts/MinecraftTen.otf" rel="stylesheet" type="text/css">
     <style>
         @font-face {
             font-family: 'MinecraftTen';
@@ -14,24 +13,35 @@
 
         body {
             font-family: 'MinecraftTen', sans-serif;
-            background-color: #1B1B1B;
-            color: white;
             margin: 0;
             padding: 0;
+            color: white;
         }
+
+        /* Toolbar */
         header {
-            background-color: #228B22;
-            padding: 20px;
+            background-color: #1B1B1B;
+            padding: 10px 20px;
             text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
             font-size: 2em;
             text-transform: uppercase;
         }
+
         nav {
             display: flex;
             justify-content: center;
             background-color: #2f6a2d;
             padding: 10px;
         }
+
         nav a {
             color: white;
             text-decoration: none;
@@ -39,30 +49,34 @@
             font-size: 1.2em;
             text-transform: uppercase;
         }
+
         nav a:hover {
             background-color: #5a9933;
         }
+
+        /* Fondo */
+        .background {
+            background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/621a06154ec3abdfd78e24124bd425882d336159/resources/images/background/MM-Addon-Showcase-01.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding-top: 60px; /* Espacio para que no se superponga con el toolbar */
+        }
+
         .container {
             margin: 20px;
             padding: 20px;
-            background-color: #3b7a3f;
+            background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente para mejorar la visibilidad */
             border-radius: 10px;
         }
+
         h2 {
             color: #f7f7f7;
             font-size: 2em;
+            text-align: center;
         }
-        .features {
-            background-color: #2a4b2b;
-            border-radius: 10px;
-            padding: 15px;
-        }
-        .feature {
-            margin: 10px 0;
-        }
-        .feature li {
-            margin: 5px 0;
-        }
+
         .download-btn {
             background-color: transparent;
             background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/a0ef07e0c01336abafafb5778bdfe08b641ed380/resources/images/buttons/GreenLauncherButton.png');
@@ -78,18 +92,21 @@
             margin: 20px auto;
             border: none;
         }
+
         .download-btn:hover {
             background-color: transparent;
             background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/a0ef07e0c01336abafafb5778bdfe08b641ed380/resources/images/buttons/GreenLauncherButton.png');
             filter: brightness(1.2);
         }
+
         footer {
-            background-color: #228B22;
+            background-color: #1B1B1B;
             color: white;
             padding: 20px;
             text-align: center;
             font-size: 1.2em;
         }
+
         footer a {
             color: white;
             text-decoration: none;
@@ -97,8 +114,10 @@
     </style>
 </head>
 <body>
+
+    <!-- Toolbar -->
     <header>
-        Murder Mystery Assistant +
+        <h1>Murder Mystery Assistant +</h1>
     </header>
 
     <nav>
@@ -108,38 +127,44 @@
         <a href="#contact">Contacto</a>
     </nav>
 
-    <section id="description" class="container">
-        <h2>¿Qué es 'Murder Mystery Assistant +'?</h2>
-        <p>'Murder Mystery Assistant +' es un add-on para Minecraft que mejora la experiencia del juego con nuevas herramientas para gestionar partidas de Murder Mystery. Con este complemento, podrás tener una mejor organización de las partidas, administración de roles y más características divertidas para tus sesiones de juego.</p>
-    </section>
+    <!-- Fondo y Contenido -->
+    <div class="background">
 
-    <section id="features" class="container features">
-        <h2>Características principales</h2>
-        <ul>
-            <li class="feature"><strong>Gestión de Roles:</strong> Asigna roles automáticamente a los jugadores (asesino, sheriff, inocente).</li>
-            <li class="feature"><strong>Temporizador:</strong> Añade un temporizador para cada ronda y aumenta la emoción del juego.</li>
-            <li class="feature"><strong>Mensajes personalizados:</strong> Muestra mensajes específicos en cada momento del juego.</li>
-            <li class="feature"><strong>Soporte para mapas:</strong> Compatible con una variedad de mapas de Murder Mystery.</li>
-            <li class="feature"><strong>Interfaz amigable:</strong> Fácil de usar para jugadores de todas las edades y niveles.</li>
-        </ul>
-    </section>
+        <section id="description" class="container">
+            <h2>¿Qué es 'Murder Mystery Assistant +'?</h2>
+            <p>'Murder Mystery Assistant +' es un add-on para Minecraft que mejora la experiencia del juego con nuevas herramientas para gestionar partidas de Murder Mystery. Con este complemento, podrás tener una mejor organización de las partidas, administración de roles y más características divertidas para tus sesiones de juego.</p>
+        </section>
 
-    <section id="download" class="container">
-        <h2>Descarga 'Murder Mystery Assistant +'</h2>
-        <p>¡Prepárate para mejorar tus partidas de Minecraft con este increíble add-on! Haz clic en el siguiente botón para descargarlo:</p>
-        <a href="link-de-descarga.zip" class="download-btn" download>Descargar Ahora</a>
-    </section>
+        <section id="features" class="container">
+            <h2>Características principales</h2>
+            <ul>
+                <li><strong>Gestión de Roles:</strong> Asigna roles automáticamente a los jugadores (asesino, sheriff, inocente).</li>
+                <li><strong>Temporizador:</strong> Añade un temporizador para cada ronda y aumenta la emoción del juego.</li>
+                <li><strong>Mensajes personalizados:</strong> Muestra mensajes específicos en cada momento del juego.</li>
+                <li><strong>Soporte para mapas:</strong> Compatible con una variedad de mapas de Murder Mystery.</li>
+                <li><strong>Interfaz amigable:</strong> Fácil de usar para jugadores de todas las edades y niveles.</li>
+            </ul>
+        </section>
 
-    <section id="contact" class="container">
-        <h2>Contacto</h2>
-        <p>Si tienes alguna pregunta o necesitas soporte, no dudes en contactarme:</p>
-        <p>Email: <a href="mailto:jeamdude@ejemplo.com">jeamdude@ejemplo.com</a></p>
-        <p>Sigue las actualizaciones en mis redes sociales:</p>
-        <p><a href="https://twitter.com/jeamdude" target="_blank">Twitter</a> | <a href="https://discord.com/invite/jeamdude" target="_blank">Discord</a></p>
-    </section>
+        <section id="download" class="container">
+            <h2>Descarga 'Murder Mystery Assistant +'</h2>
+            <p>¡Prepárate para mejorar tus partidas de Minecraft con este increíble add-on! Haz clic en el siguiente botón para descargarlo:</p>
+            <a href="link-de-descarga.zip" class="download-btn" download>Descargar Ahora</a>
+        </section>
+
+        <section id="contact" class="container">
+            <h2>Contacto</h2>
+            <p>Si tienes alguna pregunta o necesitas soporte, no dudes en contactarme:</p>
+            <p>Email: <a href="mailto:jeamdude@ejemplo.com">jeamdude@ejemplo.com</a></p>
+            <p>Sigue las actualizaciones en mis redes sociales:</p>
+            <p><a href="https://twitter.com/jeamdude" target="_blank">Twitter</a> | <a href="https://discord.com/invite/jeamdude" target="_blank">Discord</a></p>
+        </section>
+
+    </div>
 
     <footer>
         <p>&copy; 2024 JeamDude. Todos los derechos reservados.</p>
     </footer>
+
 </body>
 </html>
