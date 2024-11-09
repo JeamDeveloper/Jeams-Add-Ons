@@ -65,42 +65,6 @@
             font-size: 20px; /* 20dp en px para la fuente */
             cursor: pointer;
             text-align: center;
-            background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/d6f99ca966ee13a823eec3cf1cd9665320a42e88/resources/images/buttons/GreenLauncherButton.png?raw=true');
-            background-size: cover;
-            width: 250px;
-            height: 50px; /* Reducido para hacer el botón menos alto */
-            display: inline-block;
-            line-height: 50px; /* Alineación vertical del texto */
-        }
-
-        /* Cambiar la imagen de fondo cuando se presiona */
-        .download-text:active {
-            background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/d6f99ca966ee13a823eec3cf1cd9665320a42e88/resources/images/buttons/GreenPressesLauncherButton.png?raw=true');
-        }
-    </style>
-</head>
-<body>
-    <div class="addon-title">Murder Myster Assistant +</div>
-    <div class="download-text" id="download-text" onclick="window.location.href='https://link.descarga.com'">Descargar</div>
-
-    <script>
-        // Obtener el elemento de descarga
-        const downloadText = document.getElementById('download-text');
-
-        // Función para cambiar la imagen cuando se presiona o toca
-        downloadText.addEventListener('mousedown', function() {
-            downloadText.style.backgroundImage = 'url("https://github.com/JeamDeveloper/Lightning-Cube/blob/d6f99ca966ee13a823eec3cf1cd9665320a42e88/resources/images/buttons/GreenPressesLauncherButton.png?raw=true")';
-        });
-
-        // Función para volver a la imagen original cuando se suelta el clic o al dejar de tocar
-        downloadText.addEventListener('mouseup', function() {
-            downloadText.style.backgroundImage = 'url("https://github.com/JeamDeveloper/Lightning-Cube/blob/d6f99ca966ee13a823eec3cf1cd9665320a42e88/resources/images/buttons/GreenLauncherButton.png?raw=true")';
-        });
-
-        // Asegurarse de que la imagen vuelva a su estado original cuando se deje de tocar
-        downloadText.addEventListener('mouseleave', function() {
-            downloadText.style.backgroundImage = 'url("https://github.com/JeamDeveloper/Lightning-Cube/blob/d6f99ca966ee13a823eec3cf1cd9665320a42e88/resources/images/buttons/GreenLauncherButton.png?raw=true")';
-        });
-    </script>
-</body>
-</html>
+            background-color: #32CD32; /* Verde lima */
+            color: white;
+            width: 250px
