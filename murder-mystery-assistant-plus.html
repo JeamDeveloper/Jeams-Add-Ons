@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Descarga el add-on 'Murder Mystery Assistant +' para Minecraft y mejora tu experiencia en el juego con nuevas herramientas y funciones.">
     <title>Murder Mystery Assistant + | Add-on Minecraft</title>
+    <link href="https://github.com/JeamDeveloper/Lightning-Cube/blob/a0ef07e0c01336abafafb5778bdfe08b641ed380/resources/fonts/MinecraftTen.otf" rel="stylesheet" type="text/css">
     <style>
+        @font-face {
+            font-family: 'MinecraftTen';
+            src: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/a0ef07e0c01336abafafb5778bdfe08b641ed380/resources/fonts/MinecraftTen.otf') format('opentype');
+        }
+
         body {
-            font-family: 'Minecraft', sans-serif;
-            background-color: #4f8f44;
+            font-family: 'MinecraftTen', sans-serif;
+            background-color: #1B1B1B;
             color: white;
             margin: 0;
             padding: 0;
@@ -58,19 +64,24 @@
             margin: 5px 0;
         }
         .download-btn {
-            background-color: #f1c40f;
+            background-color: transparent;
+            background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/a0ef07e0c01336abafafb5778bdfe08b641ed380/resources/images/buttons/GreenLauncherButton.png');
+            background-size: cover;
             padding: 15px 30px;
             font-size: 1.5em;
-            color: black;
+            color: white;
             text-decoration: none;
             border-radius: 5px;
             text-align: center;
             display: block;
             width: 200px;
             margin: 20px auto;
+            border: none;
         }
         .download-btn:hover {
-            background-color: #f39c12;
+            background-color: transparent;
+            background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/a0ef07e0c01336abafafb5778bdfe08b641ed380/resources/images/buttons/GreenLauncherButton.png');
+            filter: brightness(1.2);
         }
         footer {
             background-color: #228B22;
