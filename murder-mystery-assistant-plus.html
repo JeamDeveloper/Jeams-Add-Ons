@@ -21,19 +21,17 @@
         overflow: hidden;
     }
 
-    /* Imagen de fondo con oscurecimiento y transición */
+    /* Imagen de fondo con ajuste de tamaño y transición */
     .background-image {
         width: 100%;
         height: 100%;
         background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 1) 100%), 
                           url('https://github.com/JeamDeveloper/Lightning-Cube/blob/ac0fac03218def6f03d88e9258f257b2a408da2e/resources/images/background/MM-Addon-Showcase-01.jpg?raw=true');
-        background-size: cover;
+        background-size: contain; /* Ajuste de tamaño para mantener la proporción */
         background-position: center;
         background-repeat: no-repeat;
+        background-attachment: fixed; /* Efecto paralaje */
         filter: brightness(0.5); /* Oscurecer la imagen */
-        position: absolute;
-        top: 0;
-        left: 0;
     }
 
     /* Contenido del contenedor de la imagen de fondo */
@@ -77,12 +75,10 @@
         const overlayContent = document.getElementById('overlayContent');
 
         window.addEventListener('scroll', () => {
-            // Calcular la posición de scroll
             const scrollY = window.scrollY;
             const windowHeight = window.innerHeight;
 
-            // Ajustar la opacidad en función de la posición del scroll
-            // Cuando scrollY es 0, la opacidad es 1 (visible); cuando scrollY es igual a la altura de la ventana, la opacidad es 0 (invisible)
+            // Ajustar la opacidad del contenido en función del scroll
             const opacity = Math.max(0, 1 - scrollY / windowHeight);
             overlayContent.style.opacity = opacity;
         });
