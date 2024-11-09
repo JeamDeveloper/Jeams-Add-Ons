@@ -54,17 +54,6 @@
         z-index: 1; /* Asegura que la imagen de texto esté por encima de la imagen de fondo */
     }
 
-    /* Estilo del siguiente contenido de la página */
-    .main-content {
-        height: 100vh;
-        background-color: #000;
-        color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 24px;
-    }
-
     /* Estilo del botón */
     .button {
         display: inline-block;
@@ -75,19 +64,19 @@
         text-decoration: none;
         cursor: pointer;
         border: none;
-        border-radius: 5px;
         background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/7ea2db6cb5198f284a4c777cd31d614429d6147d/resources/images/buttons/button_borderless_green.png?raw=true');
-        background-size: contain; /* Ajusta el tamaño de la imagen al tamaño del botón */
+        background-size: 100% 100%; /* Estira la imagen del botón para que ocupe todo el tamaño */
         background-repeat: no-repeat;
         background-position: center;
         transition: background 0.2s ease; /* Transición suave cuando cambia la imagen */
-        margin-top: 20px; /* Espacio entre el contenido y el botón */
+        margin-top: 20px; /* Espacio entre la imagen de texto y el botón */
         font-family: 'MinecraftTen', sans-serif; /* Aplicar la fuente al botón */
     }
 
     /* Estilo cuando el botón es presionado (estado :active) */
     .button:active {
         background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/7ea2db6cb5198f284a4c777cd31d614429d6147d/resources/images/buttons/button_borderless_greenpressed.png?raw=true');
+        background-size: 100% 100%; /* Estira la imagen del botón al presionar */
     }
 </style>
 </head>
@@ -99,10 +88,7 @@
         src="https://github.com/JeamDeveloper/Lightning-Cube/blob/ac0fac03218def6f03d88e9258f257b2a408da2e/resources/images/background/MM-Addon-Title-01.PNG?raw=true" 
         alt="MM Addon Title"> <!-- Imagen de texto visible -->
     </div>
-    <div class="main-content">
-        <h2>Contenido adicional aquí...</h2>
-        <!-- Botón de descarga -->
-        <button class="button">Descargar</button>
-    </div>
+    <!-- Botón de descarga justo debajo de la imagen de texto -->
+    <button class="button">Descargar</button>
 </body>
 </html>
