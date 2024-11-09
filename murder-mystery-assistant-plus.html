@@ -24,11 +24,20 @@
     .background-container {
         width: 100%; /* Ancho de la pantalla */
         height: 0;
-        padding-top: 56.25%; /* Relación 16:9 (alto:ancho), 9 / 16 = 0.5625 */
         position: relative;
         overflow: hidden;
-        background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/5a424be5ba459a5043c3fddbadc398c884e0d8af/resources/images/background/MM-Addon-Showcase-01.jpg?raw=true'); /* Fondo */
-        background-size: cover; /* Mantener proporción de la imagen */
+        padding-top: 56.52%; /* Relación de aspecto de la imagen: 2300px / 7800px = 0.2949 o 29% */
+    }
+
+    /* Establecer un fondo con la imagen ajustado proporcionalmente */
+    .background-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/5a424be5ba459a5043c3fddbadc398c884e0d8af/resources/images/background/MM-Addon-Showcase-01.jpg?raw=true');
+        background-size: cover; /* Asegura que cubra todo el contenedor sin distorsionarse */
         background-position: center;
         background-repeat: no-repeat;
     }
@@ -36,7 +45,7 @@
     /* Imagen de texto dentro del contenedor de fondo */
     .text-image {
         position: absolute;
-        top: 50%; /* Ajustado para centrarlo mejor */
+        top: 50%; /* Centrar la imagen de texto */
         left: 50%;
         transform: translate(-50%, -50%);
         max-width: 80%;
@@ -47,42 +56,40 @@
     /* Estilo del texto como botón */
     .text-button {
         display: inline-block;
-        padding: 20px 40px; /* Hacer el texto más grande */
-        font-size: 20px; /* Tamaño del texto */
-        color: white;
-        text-align: center;
+        padding: 20px 40px; /* Hacer el texto más grande y visible */
+        background-color: transparent;
+        color: #fff;
+        font-size: 24px;
+        font-weight: bold;
+        border: none;
         cursor: pointer;
-        background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/602540dcd45ac6048461d703a073e8da4aaed9f3/resources/images/buttons/GreenLauncherButton.png?raw=true'); /* Imagen del botón */
-        background-size: 100% 100%; /* Estirar la imagen de fondo para que ocupe todo el texto */
-        position: absolute;
-        top: 70%; /* Ubicar debajo de la imagen de texto */
-        left: 50%;
-        transform: translateX(-50%); /* Centrar el botón */
-        transition: all 0.3s ease; /* Transición suave para efectos */
-        font-family: 'MinecraftTen', sans-serif; /* Aplicar la fuente al texto */
+        text-align: center;
+        z-index: 2;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
     }
 
-    /* Efecto cuando el texto es presionado (estado :active) */
-    .text-button:active {
-        background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/6ebcebfd57fed2d19589ee3232f941ec7675b849/resources/images/buttons/GreenPressesLauncherButton.png?raw=true'); /* Cambiar imagen cuando se presiona */
-    }
-
-    /* Efecto cuando el texto está en hover (sobre el texto) */
     .text-button:hover {
-        background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/6ebcebfd57fed2d19589ee3232f941ec7675b849/resources/images/buttons/GreenPressesLauncherButton.png?raw=true'); /* Cambiar imagen en hover */
+        color: #00ff00; /* Cambiar color al pasar el cursor */
     }
+
+    .text-button:active {
+        background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/6ebcebfd57fed2d19589ee3232f941ec7675b849/resources/images/buttons/GreenPressesLauncherButton.png?raw=true');
+        background-size: cover;
+        background-position: center;
+    }
+
 </style>
 </head>
 <body>
     <div class="background-container">
-        <div class="background-image"></div> <!-- Imagen de fondo oscurecida -->
+        <div class="background-image"></div> <!-- Imagen de fondo -->
         <img 
         class="text-image"
         src="https://github.com/JeamDeveloper/Lightning-Cube/blob/ac0fac03218def6f03d88e9258f257b2a408da2e/resources/images/background/MM-Addon-Title-01.PNG?raw=true" 
         alt="MM Addon Title"> <!-- Imagen de texto visible -->
-        
-        <!-- Texto con imagen de fondo, que actúa como un botón -->
-        <span class="text-button">Descargar</span>
+        <!-- Botón de texto debajo de la imagen de texto -->
+        <button class="text-button">Descargar</button>
     </div>
 </body>
 </html>
