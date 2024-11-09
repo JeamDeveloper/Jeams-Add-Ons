@@ -54,29 +54,34 @@
         z-index: 1; /* Asegura que la imagen de texto esté por encima de la imagen de fondo */
     }
 
-    /* Estilo del botón */
+    /* Estilo del botón con fondo transparente y más grande */
     .button {
         display: inline-block;
-        padding: 10px 20px; /* Espaciado del botón */
-        font-size: 16px;
+        padding: 20px 40px; /* Hacer el botón más grande */
+        font-size: 20px; /* Tamaño del texto un poco más pequeño que el del botón */
         color: white;
         text-align: center;
         text-decoration: none;
         cursor: pointer;
-        border: none;
-        background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/602540dcd45ac6048461d703a073e8da4aaed9f3/resources/images/buttons/GreenLauncherButton.png?raw=true');
-        background-repeat: no-repeat;
-        background-position: center; /* Mantener la imagen centrada */
-        background-size: 100% 100%; /* Estirar la imagen para cubrir todo el botón */
-        transition: background 0.2s ease; /* Transición suave cuando cambia la imagen */
+        border: 2px solid #4CAF50; /* Borde verde */
+        background-color: transparent; /* Fondo transparente */
+        transition: all 0.3s ease; /* Transición suave para efectos */
         margin-top: 20px; /* Espacio entre la imagen de texto y el botón */
         font-family: 'MinecraftTen', sans-serif; /* Aplicar la fuente al botón */
     }
 
-    /* Estilo cuando el botón es presionado (estado :active) */
+    /* Efecto cuando el botón es presionado (estado :active) */
     .button:active {
-        background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/602540dcd45ac6048461d703a073e8da4aaed9f3/resources/images/buttons/GreenPressesLauncherButton.png?raw=true');
-        background-size: 100% 100%; /* Estirar la imagen para cubrir todo el botón */
+        background-color: #4CAF50; /* Fondo verde cuando se presiona */
+        color: white;
+        border-color: #45a049; /* Bordes más oscuros cuando se presiona */
+    }
+
+    /* Efecto cuando el botón está en hover (sobre el botón) */
+    .button:hover {
+        background-color: #4CAF50; /* Fondo verde en hover */
+        color: white;
+        border-color: #45a049; /* Bordes más oscuros en hover */
     }
 </style>
 </head>
