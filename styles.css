@@ -64,15 +64,15 @@ body {
 
 /* Nuevo estilo de texto default-texto */
 .default-texto {
-    font-family: 'MinecraftSeven', sans-serif;
-    font-size: 20px; /* Tamaño 20 */
-    color: white;
-    text-align: center;
-    margin: 10px 0; /* Espaciado superior e inferior */
-    padding: 0;
-    line-height: 1.2;
-    user-select: none;
-    white-space: nowrap;
+    font-family: 'MinecraftSeven';
+    font-size: 30dp;
+    color: #FFFFFF;
+    text-align: center; /* Centra el texto */
+    padding: 10px;
+    max-width: 90%; /* Limita el ancho máximo al 90% del contenedor */
+    word-wrap: break-word; /* Permite que el texto se divida en varias líneas */
+    white-space: normal; /* Permite el salto de línea automático */
+    overflow-wrap: break-word; /* Rompe palabras largas si es necesario */
 }
 
 /* Centrar elementos vertical y horizontalmente */
