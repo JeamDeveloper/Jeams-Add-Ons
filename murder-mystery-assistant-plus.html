@@ -65,9 +65,9 @@
         cursor: pointer;
         border: none;
         background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/7ea2db6cb5198f284a4c777cd31d614429d6147d/resources/images/buttons/button_borderless_green.png?raw=true');
-        background-size: 100% 100%; /* Estira la imagen del botón para que ocupe todo el tamaño */
         background-repeat: no-repeat;
-        background-position: center;
+        background-position: center; /* Mantener la imagen centrada */
+        background-size: auto 100%; /* Mantener el tamaño original de los bordes */
         transition: background 0.2s ease; /* Transición suave cuando cambia la imagen */
         margin-top: 20px; /* Espacio entre la imagen de texto y el botón */
         font-family: 'MinecraftTen', sans-serif; /* Aplicar la fuente al botón */
@@ -76,7 +76,7 @@
     /* Estilo cuando el botón es presionado (estado :active) */
     .button:active {
         background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/7ea2db6cb5198f284a4c777cd31d614429d6147d/resources/images/buttons/button_borderless_greenpressed.png?raw=true');
-        background-size: 100% 100%; /* Estira la imagen del botón al presionar */
+        background-size: auto 100%; /* Mantener el tamaño original de los bordes */
     }
 </style>
 </head>
