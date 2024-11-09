@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página con Fondo Oscurecido y Botón</title>
+    <title>Página con Fondo Oscurecido y Texto de Descarga</title>
     <style>
         /* Cargar la fuente personalizada desde el archivo .otf */
         @font-face {
@@ -53,33 +53,34 @@
         /* Estilo para el título */
         .addon-title {
             text-align: center;
-            font-size: 3rem;
+            font-size: 18px; /* 18dp en px para la fuente */
             z-index: 1;
             position: relative;
         }
 
-        /* Estilo para el botón de descarga */
-        .download-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
+        /* Estilo para el texto de descarga */
+        .download-text {
+            margin-top: 10px;
+            font-size: 12px; /* 12dp en px para la fuente */
+            cursor: pointer;
+            text-align: center;
             background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/d6f99ca966ee13a823eec3cf1cd9665320a42e88/resources/images/buttons/GreenLauncherButton.png?raw=true');
             background-size: cover;
             width: 250px;
             height: 60px;
-            border: none;
-            cursor: pointer;
-            transition: background-image 0.2s ease;
+            display: inline-block;
+            line-height: 60px;
+            text-align: center;
         }
 
-        /* Asegurar que la imagen del botón cambie al ser tocado */
-        .download-button:active {
+        /* Cambiar la imagen de fondo cuando se presiona */
+        .download-text:active {
             background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/d6f99ca966ee13a823eec3cf1cd9665320a42e88/resources/images/buttons/GreenPressesLauncherButton.png?raw=true');
         }
     </style>
 </head>
 <body>
     <div class="addon-title">Murder Myster Assistant +</div>
-    <button class="download-button" onclick="window.location.href='https://link.descarga.com'">Descargar</button>
+    <div class="download-text" onclick="window.location.href='https://link.descarga.com'">Descargar</div>
 </body>
 </html>
