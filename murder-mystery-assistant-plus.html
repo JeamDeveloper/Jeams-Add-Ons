@@ -25,44 +25,36 @@
             width: 100%;
             height: 100%;
             overflow: auto; /* Permite scroll */
-            background-image: url('https://raw.githubusercontent.com/JeamDeveloper/Lightning-Cube/b2ae54e26ec7729798c9374485232e057360dd8e/resources/images/background/MM-Addon-Showcase-01.jpg');
-            background-size: cover;
-            background-position: center;
+            background-color: #fff; /* Fondo blanco */
             color: white;
             font-family: 'MinecraftTen', sans-serif;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             position: relative;
         }
 
-        /* Fondo oscurecido dinámico */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
+        /* Contenedor de la imagen de fondo */
+        .image-container {
             width: 100%;
-            height: 100%;
-            background: rgba(25, 25, 25, 0.2); /* Oscurecimiento inicial del 20% con #191919 */
-            pointer-events: none;
-            z-index: 5;
-            transition: background-color 0.3s ease;
-        }
-
-        /* Centrado del contenido */
-        .content {
-            z-index: 10;
+            height: 50%; /* Asegura que ocupe la mitad de la pantalla */
+            background-image: url('https://raw.githubusercontent.com/JeamDeveloper/Lightning-Cube/b2ae54e26ec7729798c9374485232e057360dd8e/resources/images/background/MM-Addon-Showcase-01.jpg');
+            background-size: cover;
+            background-position: center;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            gap: 20px;
+            align-items: center;
+            flex-direction: column;
         }
 
         /* Estilo de los encabezados */
-        h1 {
-            font-size: 2em;
+        h1, h2 {
             margin: 0;
+            color: white; /* Texto blanco */
+        }
+
+        h1 {
+            font-size: 2.5em;
         }
 
         h2 {
@@ -85,9 +77,20 @@
             height: 60px;
             padding-left: 10px;
             padding-right: 10px;
-            margin-left: 10px;
-            margin-right: 10px;
             transition: background-image 0.2s ease;
+        }
+
+        /* Fondo oscurecido dinámico */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(25, 25, 25, 0.2); /* Oscurecimiento inicial del 20% con #191919 */
+            pointer-events: none;
+            z-index: 5;
+            transition: background-color 0.3s ease;
         }
 
         /* Estilo para el texto pequeño adicional */
@@ -103,12 +106,14 @@
 </head>
 <body>
     <div class="overlay" id="overlay"></div>
-    <div class="content">
+    <div class="image-container">
         <h1>Murder Mystery</h1>
         <h2>Assistant +</h2>
         <div class="b1" id="downloadButton">Descargar</div>
     </div>
+
     <p class="extra-text">Texto adicional para personalizar aquí</p>
+
     <script>
         // Desactivar selección de texto y acciones de copiar/pegar
         document.addEventListener('contextmenu', (event) => event.preventDefault());
