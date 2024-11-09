@@ -59,16 +59,17 @@
             margin-bottom: 20px; /* Para separar el título del texto de descarga */
         }
 
-        /* Estilo para el texto de descarga */
+        /* Estilo para el texto de descarga como botón con imagen de fondo */
         .download-text {
             margin-top: 10px;
             font-size: 20px; /* 20dp en px para la fuente */
             cursor: pointer;
             text-align: center;
-            background-color: #98FB98; /* Verde lima pálido */
+            background: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/5aff47a73f83947efecd99b74e50855641235ed6/resources/images/buttons/GreenLauncherButton.png?raw=true') no-repeat center center;
+            background-size: cover;
             color: white;
             width: 250px;
-            height: 50px; /* Reducido para hacer el botón menos alto */
+            height: 50px; /* Ajustado al tamaño del contenido */
             display: inline-block;
             line-height: 50px; /* Alineación vertical del texto */
             text-decoration: none; /* Sin subrayado */
@@ -76,9 +77,9 @@
             font-family: 'MinecraftTen', sans-serif; /* Usar la fuente MinecraftTen */
         }
 
-        /* Cambiar el fondo cuando se presiona */
+        /* Cambiar la imagen de fondo cuando se presiona */
         .download-text:active {
-            background-color: #006400; /* Verde oscuro al presionar */
+            background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/5aff47a73f83947efecd99b74e50855641235ed6/resources/images/buttons/GreenPressesLauncherButton.png?raw=true');
         }
     </style>
 </head>
