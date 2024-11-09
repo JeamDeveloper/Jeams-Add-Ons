@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lightning Cube Showcase</title>
+    <title>Murder Mystery - Assistant +</title>
     <style>
         /* Importa la fuente desde tu URL */
         @font-face {
@@ -31,41 +31,83 @@
             overflow: hidden;
         }
 
+        /* Fondo oscurecido */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
         .content {
             z-index: 10;
+            position: relative;
         }
 
+        /* Estilo de los encabezados */
         h1 {
-            font-size: 3em;
-            margin-bottom: 0.5em;
+            font-size: 2em; /* Tamaño reducido */
+            margin-bottom: 0.2em;
         }
 
-        p {
-            font-size: 1.5em;
+        h2 {
+            font-size: 1em; /* Tamaño reducido */
+            margin-bottom: 1em;
         }
 
+        /* Estilo del botón */
         .b1 {
             display: inline-block;
-            padding: 20px 40px;
+            padding: 10px 30px;
             background-image: url('https://raw.githubusercontent.com/JeamDeveloper/Lightning-Cube/b2ae54e26ec7729798c9374485232e057360dd8e/resources/images/buttons/GreenLauncherButton.png');
             background-size: contain;
             background-repeat: no-repeat;
+            background-position: center;
             color: white;
-            font-size: 1.2em;
+            font-size: 0.8em; /* Tamaño reducido */
             border: none;
             cursor: pointer;
             transition: background-image 0.2s ease;
-        }
-
-        .b1:active {
-            background-image: url('https://raw.githubusercontent.com/JeamDeveloper/Lightning-Cube/b2ae54e26ec7729798c9374485232e057360dd8e/resources/images/buttons/GreenPressesLauncherButton.png');
+            text-align: center;
+            line-height: 30px; /* Para centrar verticalmente el texto */
+            width: 150px; /* Tamaño reducido */
+            height: 40px; /* Tamaño reducido */
         }
     </style>
 </head>
 <body>
+    <div class="overlay"></div> <!-- Fondo oscurecido -->
     <div class="content">
-        <h1>Bienvenido a Lightning Cube</h1>
-        <p class="b1">Haz clic o mantén presionado este texto.</p>
+        <h1>Murder Mystery</h1>
+        <h2>Assistant +</h2>
+        <div class="b1" id="downloadButton">Descargar</div>
     </div>
+    <script>
+        // Obtenemos el botón
+        const downloadButton = document.getElementById('downloadButton');
+
+        // URLs de las imágenes
+        const normalImage = 'https://raw.githubusercontent.com/JeamDeveloper/Lightning-Cube/b2ae54e26ec7729798c9374485232e057360dd8e/resources/images/buttons/GreenLauncherButton.png';
+        const pressedImage = 'https://raw.githubusercontent.com/JeamDeveloper/Lightning-Cube/b2ae54e26ec7729798c9374485232e057360dd8e/resources/images/buttons/GreenPressesLauncherButton.png';
+
+        // Función para cambiar a la imagen presionada
+        function setPressedImage() {
+            downloadButton.style.backgroundImage = `url(${pressedImage})`;
+        }
+
+        // Función para volver a la imagen normal
+        function setNormalImage() {
+            downloadButton.style.backgroundImage = `url(${normalImage})`;
+        }
+
+        // Eventos para el cambio de imagen
+        downloadButton.addEventListener('mousedown', setPressedImage);
+        downloadButton.addEventListener('mouseup', setNormalImage);
+        downloadButton.addEventListener('mouseleave', setNormalImage);
+        downloadButton.addEventListener('touchstart', setPressedImage);
+        downloadButton.addEventListener('touchend', setNormalImage);
+    </script>
 </body>
 </html>
