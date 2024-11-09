@@ -22,14 +22,14 @@
 
     /* Contenedor de la imagen de fondo */
     .background-container {
-        width: 100%;
-        height: 100vh; /* Ocupa toda la pantalla inicialmente */
+        width: 100%; /* Ancho de la pantalla */
         position: relative;
         overflow: hidden;
-        padding-top: 10%; /* Desplazar hacia arriba el contenido */
         background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/5a424be5ba459a5043c3fddbadc398c884e0d8af/resources/images/background/MM-Addon-Showcase-01.jpg?raw=true'); /* Nuevo fondo */
-        background-size: cover; /* Asegura que la imagen ocupe toda la pantalla */
+        background-size: cover; /* Mantener proporción de la imagen */
         background-position: center;
+        background-repeat: no-repeat;
+        padding-top: 10%; /* Desplazar hacia arriba el contenido */
     }
 
     /* Imagen de texto dentro del contenedor de fondo */
