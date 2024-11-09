@@ -3,66 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Página para descargar Murder Mystery Assistant +.">
-    <title>Murder Mystery Assistant + | Minecraft Add-on</title>
+    <title>Página con Fuente Personalizada</title>
     <style>
+        /* Cargar la fuente personalizada desde el archivo .otf */
         @font-face {
             font-family: 'MinecraftTen';
-            src: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/a0ef07e0c01336abafafb5778bdfe08b641ed380/resources/fonts/MinecraftTen.otf') format('opentype');
+            src: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/0cca838d7d305ca0f2bd435159549f2493fde5fc/resources/fonts/MinecraftTen.otf?raw=true') format('opentype');
         }
 
+        /* Aplicar la fuente a todo el cuerpo */
         body {
-            font-family: 'MinecraftTen', sans-serif;
             margin: 0;
             padding: 0;
+            height: 100vh;
+            font-family: 'MinecraftTen', sans-serif;
             color: white;
-            background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/621a06154ec3abdfd78e24124bd425882d336159/resources/images/background/MM-Addon-Showcase-01.jpg');
+            background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/f69418991959d3e14dfebefdc162dcc0ad8a75c9/resources/images/background/MM-Addon-Showcase-01.jpg?raw=true');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            min-height: 100vh;
+            background-repeat: no-repeat;
+            position: relative;
         }
 
-        /* Toolbar */
-        header {
-            position: fixed;
+        /* Capa oscura encima del fondo */
+        body::after {
+            content: '';
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 10px 20px;
-            z-index: 1000;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Oscurecer el fondo con un filtro semitransparente */
+            z-index: -1; /* Asegurarse de que esté detrás del contenido */
+        }
+
+        /* Estilo para los elementos dentro de la página */
+        h1 {
             text-align: center;
+            margin-top: 20%;
         }
-
-        header h1 {
-            font-size: 2.5em;
-            color: #fff;
-            text-transform: uppercase;
-            margin: 0;
-        }
-
-        /* Espacio debajo del toolbar */
-        .content {
-            margin-top: 80px;
-            padding: 20px;
-            text-align: center;
-        }
-
     </style>
 </head>
 <body>
-
-    <!-- Toolbar -->
-    <header>
-        <h1>Murder Mystery Assistant +</h1>
-    </header>
-
-    <!-- Contenido -->
-    <div class="content">
-        <h2>Bienvenido al Add-on</h2>
-        <p>Aquí podrás encontrar todas las herramientas y características para mejorar tus partidas de Murder Mystery en Minecraft.</p>
-    </div>
-
+    <h1>Bienvenido a la Página con Fondo Oscurecido</h1>
 </body>
 </html>
