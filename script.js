@@ -8,19 +8,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // Cambiar la imagen a "presionado" cuando el dedo toque el botón
     launcherButton.addEventListener('touchstart', function() {
         launcherButton.style.backgroundImage = `url(${pressedImageUrl})`;
+        launcherButton.style.padding = "8px"; // Agregar padding al presionar
     });
     
     // Volver a la imagen original cuando el dedo deje de tocar
     launcherButton.addEventListener('touchend', function() {
         launcherButton.style.backgroundImage = `url(${normalImageUrl})`;
+        launcherButton.style.padding = ""; // Eliminar padding cuando se deje de presionar
     });
 
     // Para que funcione cuando el usuario haga click en el botón (en dispositivos con mouse)
     launcherButton.addEventListener('mousedown', function() {
         launcherButton.style.backgroundImage = `url(${pressedImageUrl})`;
+        launcherButton.style.padding = "8px"; // Agregar padding al presionar
     });
     
     launcherButton.addEventListener('mouseup', function() {
         launcherButton.style.backgroundImage = `url(${normalImageUrl})`;
+        launcherButton.style.padding = ""; // Eliminar padding cuando se deje de presionar
     });
 });
