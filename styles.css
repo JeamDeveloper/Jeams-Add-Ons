@@ -1,86 +1,96 @@
-/* Cargar la fuente personalizada desde el archivo .otf */
+/* Cargar fuentes */
 @font-face {
     font-family: 'MinecraftTen';
     src: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/0cca838d7d305ca0f2bd435159549f2493fde5fc/resources/fonts/MinecraftTen.otf?raw=true') format('opentype');
 }
 
-/* Aplicar la fuente a todo el cuerpo */
+@font-face {
+    font-family: 'MinecraftSeven';
+    src: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/dee1a95e752b38112895b9d184856b838b955ff2/resources/fonts/MinecraftSeven.ttf?raw=true') format('truetype');
+}
+
+/* Fondo de la página */
 body {
     margin: 0;
     padding: 0;
+    background-color: #1B1B1B;
+    overflow: hidden; /* Ocultar barra de scroll */
+}
+
+/* Contenedor del fondo y elementos de la página */
+.mm-addon-page {
+    position: relative;
+    width: 100vw;
     height: 100vh;
-    font-family: 'MinecraftTen', sans-serif;
-    color: white;
-    background-color: #1B1B1B; /* Fondo del body color oscuro */
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Contenedor principal para la página de MM Add On */
-.mm-add-on-page {
-    width: 100%;
-    height: 100%;
-    background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/f69418991959d3e14dfebefdc162dcc0ad8a75c9/resources/images/background/MM-Addon-Showcase-01.jpg?raw=true');
+    background: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/f69418991959d3e14dfebefdc162dcc0ad8a75c9/resources/images/background/MM-Addon-Showcase-01.jpg?raw=true') no-repeat center center;
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    z-index: 1;
 }
 
-/* Capa oscura encima del fondo sin dejar espacios visibles */
-.mm-add-on-page::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Oscurecer el fondo con un filtro semitransparente */
-    z-index: -1; /* Asegurarse de que esté detrás del contenido */
-}
-
-/* Estilo para el título */
+/* Estilo del título */
 .addon-title {
+    font-family: 'MinecraftTen', sans-serif;
+    font-size: 26px; /* Tamaño 26dp */
+    color: white;
     text-align: center;
-    font-size: 40px; /* 26dp en px para la fuente */
-    z-index: 1;
-    position: relative;
-    margin-bottom: 20px; /* Para separar el título del texto de descarga */
+    margin: 20px 0;
+    user-select: none;
 }
 
+/* Estilo del texto launcher_button */
 .launcher_button {
     margin-top: 10px;
-    font-size: 20px; /* 20dp en px para la fuente */
+    font-size: 20px;
     cursor: pointer;
-    text-align: center;
-    background: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/5aff47a73f83947efecd99b74e50855641235ed6/resources/images/buttons/GreenLauncherButton.png?raw=true') no-repeat center center;
-    background-size: contain; /* Ajusta la imagen dentro del contenedor sin cortarla */
-    background-repeat: no-repeat; /* Asegura que la imagen no se repita */
     color: white;
     width: 250px;
-    height: 50px; /* Ajustado al tamaño del contenido */
-    display: inline-block;
-    line-height: 50px; /* Alineación vertical del texto */
-    text-decoration: none; /* Sin subrayado */
-    border: none; /* Sin bordes */
-    font-family: 'MinecraftTen', sans-serif; /* Usar la fuente MinecraftTen */
-    padding: 0; /* Sin padding predeterminado */
-    text-align: center; /* Centrar el texto horizontalmente */
-    vertical-align: middle; /* Centrar el texto verticalmente */
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: none; /* Sin transiciones */
+    background: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/5aff47a73f83947efecd99b74e50855641235ed6/resources/images/buttons/GreenLauncherButton.png?raw=true') no-repeat center center;
+    background-size: contain;
+    text-align: center;
+    line-height: 50px;
+    text-decoration: none;
+    font-family: 'MinecraftTen', sans-serif;
+    border: none;
+    padding: 0;
+    transition: none;
 }
 
+.launcher_button:hover,
 .launcher_button:active {
     background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/5aff47a73f83947efecd99b74e50855641235ed6/resources/images/buttons/GreenPressesLauncherButton.png?raw=true');
+}
+
+/* Nuevo estilo de texto default-texto */
+.default-texto {
+    font-family: 'MinecraftSeven', sans-serif;
+    font-size: 30px; /* Tamaño 30dp */
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+    user-select: none;
+    white-space: nowrap;
+}
+
+/* Centrar launcher_button horizontal y verticalmente */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+/* Ajustes de scroll y rebotes */
+html,
+body {
+    overscroll-behavior: contain; /* Desactiva efecto de rebote al hacer scroll rápido */
+    scrollbar-width: none; /* Ocultar barra de scroll en Firefox */
+}
+
+body::-webkit-scrollbar {
+    display: none; /* Ocultar barra de scroll en Chrome, Safari y Edge */
 }
