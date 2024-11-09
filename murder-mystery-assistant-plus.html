@@ -64,20 +64,22 @@
         cursor: pointer;
         background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/602540dcd45ac6048461d703a073e8da4aaed9f3/resources/images/buttons/GreenLauncherButton.png?raw=true'); /* Imagen del botón */
         background-size: 100% 100%; /* Estirar la imagen de fondo para que ocupe todo el texto */
-        position: relative;
+        position: absolute;
+        top: 80%; /* Ubicar debajo de la imagen de texto */
+        left: 50%;
+        transform: translateX(-50%); /* Centrar el botón */
         transition: all 0.3s ease; /* Transición suave para efectos */
-        margin-top: 20px; /* Espacio entre la imagen de texto y el texto como botón */
         font-family: 'MinecraftTen', sans-serif; /* Aplicar la fuente al texto */
     }
 
     /* Efecto cuando el texto es presionado (estado :active) */
     .text-button:active {
-        background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/602540dcd45ac6048461d703a073e8da4aaed9f3/resources/images/buttons/GreenPressesLauncherButton.png?raw=true'); /* Cambiar imagen cuando se presiona */
+        background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/6ebcebfd57fed2d19589ee3232f941ec7675b849/resources/images/buttons/GreenPressesLauncherButton.png?raw=true'); /* Cambiar imagen cuando se presiona */
     }
 
     /* Efecto cuando el texto está en hover (sobre el texto) */
     .text-button:hover {
-        background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/602540dcd45ac6048461d703a073e8da4aaed9f3/resources/images/buttons/GreenPressesLauncherButton.png?raw=true'); /* Cambiar imagen en hover */
+        background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/6ebcebfd57fed2d19589ee3232f941ec7675b849/resources/images/buttons/GreenPressesLauncherButton.png?raw=true'); /* Cambiar imagen en hover */
     }
 </style>
 </head>
@@ -88,9 +90,9 @@
         class="text-image"
         src="https://github.com/JeamDeveloper/Lightning-Cube/blob/ac0fac03218def6f03d88e9258f257b2a408da2e/resources/images/background/MM-Addon-Title-01.PNG?raw=true" 
         alt="MM Addon Title"> <!-- Imagen de texto visible -->
+        
+        <!-- Texto con imagen de fondo, que actúa como un botón -->
+        <span class="text-button">Descargar</span>
     </div>
-
-    <!-- Texto con imagen de fondo, que actúa como un botón -->
-    <span class="text-button">Descargar</span>
 </body>
 </html>
