@@ -74,4 +74,10 @@ body {
     border: none; /* Sin bordes */
     font-family: 'MinecraftTen', sans-serif; /* Usar la fuente MinecraftTen */
     padding: 0; /* Sin padding predeterminado */
+    transition: background-image 0.2s ease, transform 0.1s ease; /* Suaviza el cambio de imagen y la escala */
+}
+
+.launcher_button:active {
+    background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/5aff47a73f83947efecd99b74e50855641235ed6/resources/images/buttons/GreenPressesLauncherButton.png?raw=true');
+    transform: scale(0.95); /* Cambia el tamaño del botón sin afectar el layout */
 }
