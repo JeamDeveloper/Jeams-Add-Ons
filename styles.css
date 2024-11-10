@@ -52,7 +52,7 @@ body {
     position: relative;
     width: 100vw;
     height: 100vh;
-    background: url('resources/images/background/Home-Screen-Page-Background.JPEG') no-repeat center center;
+    background: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/a7a0a58a7268f218c2a8938ac1f4d025fb9c1cf0/resources/images/background/Home-Screen-Page-Background.JPEG') no-repeat center center;
     background-size: cover;
 }
 
