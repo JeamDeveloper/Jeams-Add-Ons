@@ -83,7 +83,7 @@ body {
 /* Nuevo estilo de texto default-texto */
 .default-texto {
     font-family: 'MinecraftSeven';
-    font-size: 30px; /* Ajuste a px en lugar de dp para CSS */
+    font-size: 20px; /* Ajuste a px en lugar de dp para CSS */
     color: #FFFFFF;
     text-align: center; /* Centra el texto */
     padding: 10px 10px; /* Espacio superior/inferior de 10px y laterales de 10px */
