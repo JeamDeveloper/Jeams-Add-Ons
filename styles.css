@@ -1,12 +1,13 @@
-/* Importar las fuentes directamente desde las URL */
 @font-face {
     font-family: 'MinecraftTen';
-    src: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/0cca838d7d305ca0f2bd435159549f2493fde5fc/resources/fonts/MinecraftTen.otf?raw=true') format('opentype');
+    src: url('resources/fonts/MinecraftTen.otf') format('opentype'),
+         url('resources/fonts/MinecraftTen.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'MinecraftSeven';
-    src: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/dee1a95e752b38112895b9d184856b838b955ff2/resources/fonts/MinecraftSeven.ttf?raw=true') format('truetype');
+    src: url('resources/fonts/MinecraftSeven.otf') format('opentype'),
+         url('resources/fonts/MinecraftSeven.ttf') format('truetype');
 }
 
 /* Fondo de la página */
