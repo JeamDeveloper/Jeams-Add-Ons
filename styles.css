@@ -1,6 +1,13 @@
-/* Importar las fuentes directamente */
-@import url('https://github.com/JeamDeveloper/Lightning-Cube/blob/0cca838d7d305ca0f2bd435159549f2493fde5fc/resources/fonts/MinecraftTen.otf?raw=true');
-@import url('https://github.com/JeamDeveloper/Lightning-Cube/blob/dee1a95e752b38112895b9d184856b838b955ff2/resources/fonts/MinecraftSeven.ttf?raw=true');
+/* Importar las fuentes directamente desde las URL */
+@font-face {
+    font-family: 'MinecraftTen';
+    src: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/0cca838d7d305ca0f2bd435159549f2493fde5fc/resources/fonts/MinecraftTen.otf?raw=true') format('opentype');
+}
+
+@font-face {
+    font-family: 'MinecraftSeven';
+    src: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/dee1a95e752b38112895b9d184856b838b955ff2/resources/fonts/MinecraftSeven.ttf?raw=true') format('truetype');
+}
 
 /* Fondo de la página */
 body {
@@ -8,6 +15,7 @@ body {
     padding: 0;
     background-color: #1B1B1B;
     overflow: auto;
+    font-family: 'MinecraftTen'; /* Aseguramos que todo el contenido use la fuente MinecraftTen por defecto */
 }
 
 /* Estilo del contenedor del fondo */
@@ -35,7 +43,7 @@ body {
 
 /* Estilo del título */
 .addon-title {
-    font-family: 'MinecraftTen';
+    font-family: 'MinecraftTen'; /* Forzar el uso de la fuente MinecraftTen */
     font-size: 26px;
     color: white;
     text-align: center;
@@ -62,7 +70,7 @@ body {
     text-align: center;
     line-height: 50px;
     text-decoration: none;
-    font-family: 'MinecraftTen';
+    font-family: 'MinecraftTen'; /* Forzar el uso de la fuente MinecraftTen */
     border: none;
     padding: 0;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
@@ -74,7 +82,7 @@ body {
 
 /* Nuevo estilo de texto default-texto */
 .default-texto {
-    font-family: 'MinecraftSeven';
+    font-family: 'MinecraftSeven'; /* Forzar el uso de la fuente MinecraftSeven */
     font-size: 20px;
     color: #FFFFFF;
     text-align: center;
@@ -89,7 +97,7 @@ body {
 
 /* Estilo de texto más pequeño */
 .default-texto-small {
-    font-family: 'MinecraftSeven';
+    font-family: 'MinecraftSeven'; /* Forzar el uso de la fuente MinecraftSeven */
     font-size: 8px;
     color: #D3D3D3;
     text-align: center;
@@ -128,7 +136,7 @@ body {
 
 /* Estilos para el texto de créditos */
 .credits-text {
-    font-family: 'MinecraftSeven';
+    font-family: 'MinecraftSeven'; /* Forzar el uso de la fuente MinecraftSeven */
     font-size: 10px;
     color: white;
     word-wrap: break-word;
