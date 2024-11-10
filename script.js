@@ -27,8 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const timeSpent = (Date.now() - startTime) / 1000; // Tiempo en segundos
 
         if (timeSpent > 10) {
-            // Iniciar la descarga si se ha pasado más de 10 segundos en Linkvertise
-            iniciarDescarga();
+            // Esperar 1 segundo antes de iniciar la descarga automática
+            setTimeout(() => {
+                iniciarDescarga();
+            }, 1000);
         }
         
         // Limpiar el localStorage para evitar conflictos futuros
