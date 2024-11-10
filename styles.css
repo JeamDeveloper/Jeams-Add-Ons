@@ -21,6 +21,7 @@ body {
 /* Estilo del contenedor del fondo */
 /* Estilo del contenedor del fondo */
 /* Estilo del contenedor del fondo */
+/* Estilo del contenedor del fondo */
 .mm-addon-page {
     position: relative;
     width: 100vw;
@@ -110,7 +111,12 @@ body {
     color: white;
     text-align: center;
     padding: 20px 0;
+    margin-top: 16dp; /* Márgenes de 16dp arriba del contenedor de créditos */
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 /* Estilos para el texto de créditos */
@@ -119,6 +125,8 @@ body {
     font-size: 14px;
     color: white;
     word-wrap: break-word;
+    text-align: center;
+    line-height: 1.5; /* Espaciado entre líneas */
 }
 
 /* Ajustes de scroll y rebotes */
