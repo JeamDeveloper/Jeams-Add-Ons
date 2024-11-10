@@ -13,12 +13,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Cambiar imagen cuando se pasa el ratón por encima (hover) o se toca en una pantalla táctil
     launcherButton.addEventListener('mouseenter', () => {
-        launcherButton.style.backgroundImage = `url(${pressedImageUrl})`;
+        if (launcherButton.innerText !== "Iniciar descarga") {
+            launcherButton.style.backgroundImage = `url(${pressedImageUrl})`;
+        }
     });
 
     // Cambiar imagen cuando se toca en dispositivos táctiles (touchstart)
     launcherButton.addEventListener('touchstart', () => {
-        launcherButton.style.backgroundImage = `url(${pressedImageUrl})`;
+        if (launcherButton.innerText !== "Iniciar descarga") {
+            launcherButton.style.backgroundImage = `url(${pressedImageUrl})`;
+        }
     });
 
     // Volver a la imagen normal cuando el ratón deja de estar encima o se deja de tocar
@@ -57,6 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
             link.download = "Murder Mystery Assistant +.mcpack";
             link.click();
         } else {
+            // Prevenir que la imagen se cambie cuando se redirige a Linkvertise
+            launcherButton.style.backgroundImage = `url(${normalImageUrl})`;
             // Ir a Linkvertise si el texto del botón no es "Iniciar descarga"
             window.location.href = "https://link-hub.net/249306/mmaplus-addon-mcbd";
         }
