@@ -20,7 +20,7 @@ body {
 /* Contenedor del fondo y elementos de la página */
 .mm-addon-page {
     position: relative;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro con opacidad */
+    background-color: rgba(0, 0, 0, 0.3); /* Fondo negro con 30% de opacidad */
     min-height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
     display: flex;
     justify-content: center;
