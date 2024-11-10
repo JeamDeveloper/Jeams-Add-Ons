@@ -95,6 +95,20 @@ body {
     box-sizing: border-box; /* Incluye padding y margen en el tamaño del elemento */
 }
 
+.default-texto-small {
+    font-family: 'MinecraftSeven';
+    font-size: 18px; /* Tamaño ligeramente más pequeño */
+    color: #D3D3D3; /* Gris claro */
+    text-align: center; /* Centra el texto */
+    padding: 8px 10px; /* Espacio superior/inferior de 8px y laterales de 10px */
+    margin: 0 10px; /* Margen lateral de 10px para evitar que toque los bordes */
+    max-width: calc(100% - 20px); /* Asegura que el texto se mantenga dentro del margen */
+    word-wrap: break-word; /* Permite el salto de palabra */
+    white-space: normal; /* Permite el salto de línea automático */
+    overflow-wrap: break-word; /* Rompe palabras largas si es necesario */
+    box-sizing: border-box; /* Incluye padding y margen en el tamaño del elemento */
+}
+
 /* Centrar elementos vertical y horizontalmente */
 .container {
     display: flex;
