@@ -26,6 +26,17 @@ body {
     background-size: cover;
 }
 
+.mm-addon-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Oscurece el fondo con 50% de opacidad */
+    z-index: 1; /* Asegura que el oscuro esté encima, pero debajo del contenido */
+}
+
 /* Estilo del título */
 .addon-title {
     font-family: 'MinecraftTen', sans-serif;
