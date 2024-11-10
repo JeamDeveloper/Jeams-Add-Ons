@@ -135,7 +135,7 @@ body {
 /* Contenedor de redes sociales */
 .social-container {
     width: 100%;
-    background-color: #2E2E2E; /* Fondo gris oscuro */
+    background-color: #141414; /* Gris 80% oscuro, más oscuro que #1B1B1B */
     padding: 20px 0;
     display: flex;
     justify-content: center;
@@ -145,7 +145,7 @@ body {
 /* Estilo del texto en el contenedor de redes sociales */
 .social-text {
     font-family: 'MinecraftSeven';
-    font-size: 10px; /* Reducido 6dp desde 16px */
+    font-size: 12px; /* 2dp más grande que antes (10px a 12px) */
     color: #FFFFFF; /* Color blanco */
     text-align: center;
     padding: 0 16px;
