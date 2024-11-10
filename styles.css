@@ -160,47 +160,41 @@ body {
 }
 
 
-/* Contenedor de redes sociales (horizontal) */
+/* Contenedor de redes sociales */
 .social-container {
     display: flex;
-    flex-direction: column; /* Cambiar a columna para las redes sociales */
+    flex-direction: column; /* Cambiar a columna para los elementos internos */
+    align-items: center; /* Centrar los elementos horizontalmente */
     width: 100%;
     background-color: #141414; /* Gris 80% oscuro */
     padding: 20px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Centrado vertical de los elementos */
 }
 
-/* Estilo para los enlaces de redes sociales */
+/* Título "Síguenos en nuestras redes sociales" */
+.social-title {
+    font-family: 'MinecraftSeven'; /* Fuente MinecraftSeven */
+    font-size: 20px; /* Tamaño de fuente */
+    color: #FFFFFF; /* Color blanco para el texto */
+    text-align: center; /* Centrar el texto */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+/* Contenedor para los enlaces de MCPEDL e Instagram */
+.social-links {
+    display: flex;
+    justify-content: center; /* Centrar los enlaces horizontalmente */
+    gap: 20px; /* Espacio entre los enlaces */
+    width: auto;
+}
+
+/* Estilo para los enlaces de redes sociales (MCPEDL e Instagram) */
 .social-link {
     font-family: 'MinecraftSeven'; /* Fuente MinecraftSeven */
-    font-size: 16px; /* Tamaño de fuente para los enlaces */
+    font-size: 16px; /* Tamaño de fuente */
     color: #FFFFFF; /* Color blanco para los enlaces */
     text-decoration: none; /* Eliminar subrayado */
-    margin: 5px 0; /* Espacio entre los enlaces */
     text-align: center;
-}
-
-/* Contenedor de créditos (vertical) */
-.credits {
-    width: 100%;
-    background-color: #1B1B1B;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 16px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; /* Mantener la alineación vertical */
-}
-
-/* Estilo de los enlaces al hacer hover (pasar el ratón) */
-.social-link:hover {
-    color: #FFFFFF; /* Mantener color blanco */
-    text-decoration: none; /* Sin subrayado al pasar el ratón */
 }
 
 /* Estilo cuando el enlace es presionado */
