@@ -19,35 +19,35 @@ document.addEventListener('DOMContentLoaded', () => {
         launcherButton.style.backgroundImage = `url(${normalImageUrl})`;
     });
 
-    // Al presionar el botón, redirigir al enlace de Linkvertise
-    launcherButton.addEventListener('click', () => {
-        window.location.href = 'https://link-hub.net/249306/mmaplus-addon-mcbd';
-    });
-
-    // Lógica de detección de tiempo en la página de Linkvertise
-    let linkvertiseExitTime = 0;
-    const downloadUrl = 'https://github.com/JeamDeveloper/Lightning-Cube/raw/1e1601e5a777ace72d251f81ff61dc84400cb57d/resources/extra/Murder%20Mystery%20Assistant%20+.mcpack';
-
-    // Detectar si el visitante viene de un enlace de Linkvertise
-    const referer = document.referrer.toLowerCase();
-    const isFromLinkvertise = referer.includes("linkvertise");
-
-    if (isFromLinkvertise) {
-        linkvertiseExitTime = Date.now();
+    // Detectar si el usuario viene de un enlace de Linkvertise
+    let linkvertiseTimer;
+    if (document.referrer.includes("linkvertise")) {
+        linkvertiseTimer = setTimeout(() => {
+            // Si estuvo 25 segundos en Linkvertise, descarga el archivo directamente
+            downloadFile();
+        }, 25000); // 25 segundos
     }
 
-    // Verificar después de 10 segundos si el visitante se quedó mucho tiempo en la página de Linkvertise
-    setInterval(() => {
-        if (isFromLinkvertise && linkvertiseExitTime !== 0) {
-            const currentTime = Date.now();
-            const timeSpent = (currentTime - linkvertiseExitTime) / 1000; // tiempo en segundos
-            if (timeSpent >= 10) {
-                // Mostrar diálogo para la descarga
-                const userConfirmed = confirm('¿Quieres descargar el archivo Murder Mystery Assistant +?');
-                if (userConfirmed) {
-                    window.location.href = downloadUrl; // Iniciar la descarga
-                }
-            }
+    // Función para iniciar la descarga
+    function downloadFile() {
+        // Archivo a descargar
+        const fileUrl = 'https://github.com/JeamDeveloper/Lightning-Cube/raw/1e1601e5a777ace72d251f81ff61dc84400cb57d/resources/extra/Murder%20Mystery%20Assistant%20+.mcpack';
+
+        // Crea un enlace de descarga dinámico
+        const link = document.createElement('a');
+        link.href = fileUrl;
+        link.download = 'Murder Mystery Assistant +.mcpack'; // Nombre del archivo
+
+        // Simula un click para iniciar la descarga
+        link.click();
+    }
+
+    // Detectar cuando el usuario vuelve a la página desde Linkvertise
+    window.addEventListener('focus', () => {
+        if (linkvertiseTimer) {
+            clearTimeout(linkvertiseTimer);
+            // Iniciar descarga directamente después de 25 segundos si vino de Linkvertise
+            downloadFile();
         }
-    }, 1000); // Comprobar cada segundo
+    });
 });
