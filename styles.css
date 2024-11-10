@@ -97,7 +97,7 @@ body {
 
 .default-texto-small {
     font-family: 'MinecraftSeven';
-    font-size: 10px; /* Tamaño ligeramente más pequeño */
+    font-size: 8px; /* Tamaño ligeramente más pequeño */
     color: #D3D3D3; /* Gris claro */
     text-align: center; /* Centra el texto */
     padding: 8px 10px; /* Espacio superior/inferior de 8px y laterales de 10px */
