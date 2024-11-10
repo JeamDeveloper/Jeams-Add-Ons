@@ -20,19 +20,10 @@ body {
 /* Contenedor del fondo y elementos de la página */
 .mm-addon-page {
     position: relative;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/f69418991959d3e14dfebefdc162dcc0ad8a75c9/resources/images/background/MM-Addon-Showcase-01.jpg');
+    width: 100vw;
+    height: 100vh;
+    background: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/f69418991959d3e14dfebefdc162dcc0ad8a75c9/resources/images/background/MM-Addon-Showcase-01.jpg?raw=true') no-repeat center center;
     background-size: cover;
-    background-position: center;
-}
-
-.content {
-    position: relative;
-    text-align: center;
-    padding: 20px;
 }
 
 /* Estilo del título */
@@ -73,17 +64,15 @@ body {
 
 /* Nuevo estilo de texto default-texto */
 .default-texto {
-    font-family: 'MinecraftSeven';
-    font-size: 30dp;
-    color: #FFFFFF;
-    text-align: center; /* Centra el texto */
-    padding: 10px 8dp; /* Espacio superior/inferior de 10px y laterales de 8dp */
-    margin: 0 8dp; /* Margen lateral de 8dp para evitar que toque los bordes */
-    max-width: calc(100% - 16dp); /* Asegura que el texto se mantenga dentro del margen */
-    word-wrap: break-word; /* Permite el salto de palabra */
-    white-space: normal; /* Permite el salto de línea automático */
-    overflow-wrap: break-word; /* Rompe palabras largas si es necesario */
-    box-sizing: border-box; /* Incluye padding y margen en el tamaño del elemento */
+    font-family: 'MinecraftSeven', sans-serif;
+    font-size: 30px; /* Tamaño 30dp */
+    color: white;
+    text-align: center;
+    margin: 10px 0; /* Espaciado superior e inferior */
+    padding: 0;
+    line-height: 1.2;
+    user-select: none;
+    white-space: nowrap;
 }
 
 /* Centrar elementos vertical y horizontalmente */
