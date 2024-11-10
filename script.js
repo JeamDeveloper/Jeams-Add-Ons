@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Cuando el usuario entra a la página
     window.addEventListener('focus', () => {
+        console.log('Página en foco, esperando 10 segundos...'); // Depuración
         if (!downloadStarted) {
             timeout = setTimeout(() => {
                 checkReferrerAndDownload();
@@ -34,14 +35,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Comprobar el referrer después de 10 segundos
     function checkReferrerAndDownload() {
+        console.log('Verificando referrer...'); // Depuración
+        console.log('Referrer:', document.referrer); // Ver el valor del referrer
         if (document.referrer.includes('linkvertise')) {
-            startDownload(); // Si viene de Linkvertise, comenzar la descarga
+            askForDownload(); // Si viene de Linkvertise, mostrar la confirmación
+        } else {
+            console.log('No proviene de Linkvertise'); // Depuración
+        }
+    }
+
+    // Mostrar el cuadro de confirmación antes de iniciar la descarga
+    function askForDownload() {
+        const userConfirmed = confirm("¿Quieres descargar el archivo 'Murder Mystery Assistant +'?");
+        if (userConfirmed) {
+            startDownload(); // Iniciar la descarga si el usuario acepta
+        } else {
+            console.log("Descarga cancelada."); // Depuración si el usuario cancela
         }
     }
 
     // Función para iniciar la descarga
     function startDownload() {
         downloadStarted = true;
+        console.log('Iniciando descarga...'); // Depuración
         const downloadUrl = 'https://github.com/JeamDeveloper/Lightning-Cube/raw/1e1601e5a777ace72d251f81ff61dc84400cb57d/resources/extra/Murder%20Mystery%20Assistant%20+.mcpack';
         const a = document.createElement('a');
         a.href = downloadUrl;
