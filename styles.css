@@ -185,6 +185,7 @@ body {
 }
 
 /* Estilo para los enlaces de redes sociales */
+/* Estilo para los enlaces de redes sociales */
 .social-link {
     font-family: 'MinecraftSeven'; /* Fuente MinecraftSeven */
     font-size: 16px; /* Tamaño de fuente para los enlaces */
@@ -199,6 +200,13 @@ body {
 .social-link:focus {
     color: #FFFFFF; /* Mantener color blanco */
     text-decoration: none; /* Sin subrayado al pasar el ratón */
+}
+
+/* Asegurarse de que al dejar de tocar el enlace vuelva a su estilo original */
+.social-link:active,
+.social-link:focus-visible {
+    color: #FFFFFF; /* Mantener color blanco */
+    text-decoration: none; /* Sin subrayado al hacer clic o al seleccionar */
 }
 
 /* Estilos para el contenedor de créditos */
