@@ -10,6 +10,7 @@
 }
 
 /* Fondo de la página */
+/* Fondo de la página */
 body {
     margin: 0;
     padding: 0;
@@ -17,7 +18,7 @@ body {
     overflow: hidden; /* Ocultar barra de scroll */
 }
 
-/* Contenedor del fondo y elementos de la página */
+/* Contenedor principal del fondo y elementos de la página */
 .mm-addon-page {
     position: relative;
     width: 100vw;
@@ -26,20 +27,26 @@ body {
     background-size: cover;
 }
 
-.mm-addon-page::before {
-    content: '';
+/* Estilo de los créditos en la parte inferior */
+.credits {
     position: absolute;
-    top: 0;
-    left: 0;
+    bottom: 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); /* Oscurece el fondo con 70% de opacidad */
-    z-index: 0; /* Esto coloca la capa oscura detrás del contenido */
+    background-color: rgba(0, 0, 0, 0.3); /* Fondo oscuro semitransparente */
+    color: white;
+    text-align: center;
+    padding: 20px 0; /* Espaciado alrededor del texto */
 }
 
+/* Estilo del texto de créditos */
+.credits-text {
+    font-family: 'MinecraftSeven', sans-serif;
+    font-size: 16px; /* Tamaño de fuente ajustado */
+    margin: 5px 0;
+}
+
+/* Centrar elementos vertical y horizontalmente */
 .container {
-    position: relative; /* Necesario para asegurar que el contenido esté por encima de la capa oscura */
-    z-index: 1; /* Asegura que el contenido quede encima del pseudo-elemento */
     display: flex;
     flex-direction: column;
     justify-content: center;
