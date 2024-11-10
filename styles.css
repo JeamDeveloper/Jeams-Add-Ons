@@ -132,6 +132,30 @@ body {
     height: 100%;
 }
 
+/* Contenedor de redes sociales */
+.social-container {
+    width: 100%;
+    background-color: #000000; /* Fondo negro */
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo del texto en el contenedor de redes sociales */
+.social-text {
+    font-family: 'MinecraftSeven';
+    font-size: 16px; /* 2dp más grande que default-texto-small */
+    color: #FFFFFF; /* Color blanco */
+    text-align: center;
+    padding: 0 16px;
+    max-width: calc(100% - 32px);
+    word-wrap: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+}
+
 /* Estilos para el contenedor de créditos */
 .credits {
     width: 100%;
