@@ -44,22 +44,24 @@ body {
 
 /* Estilo del título */
 /* Estilo del título principal */
+/* Estilo del título principal */
 .addon-title {
-    font-family: 'MinecraftTen', sans-serif;
+    font-family: 'MinecraftTen';
     font-size: 26px; /* Tamaño 26dp */
     color: white;
     text-align: center;
-    margin: 20px 0;
+    margin-top: 20px; /* Solo margen superior */
+    margin-bottom: 0; /* Eliminar margen inferior */
     user-select: none;
 }
 
 /* Estilo del título más pequeño, justo debajo del principal */
 .addon-title-small {
-    font-family: 'MinecraftTen', sans-serif;
+    font-family: 'MinecraftTen';
     font-size: 22px; /* 4dp menos que el título principal */
-    color: white;
+    color: white; /* Texto en blanco */
     text-align: center;
-    margin: 4dp 0 20px 0; /* 4dp menos de margen superior */
+    margin: 0; /* Sin margen superior ni inferior */
     user-select: none;
 }
 
