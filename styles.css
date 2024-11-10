@@ -62,8 +62,6 @@ body {
     z-index: 1;
 }
 
-/* Estilo del título */
-/* Estilo del título principal */
 /* Estilo del título principal */
 .addon-title {
     font-family: 'MinecraftTen';
@@ -89,7 +87,7 @@ body {
 .highlighted-text {
     background-color: rgba(27, 27, 27, 0.5); /* Fondo #1B1B1B con 50% de transparencia */
     padding: 10px 20px; /* Espacio interno alrededor del texto */
-    margin: 10px 0; /* Espacio superior e inferior */
+    margin: 2px 0; /* Margin de 2dp arriba y abajo */
     text-align: center; /* Centrar el texto */
     width: auto; /* Ajustar al tamaño del texto */
     display: inline-block; /* Mantener el tamaño ajustado al contenido */
