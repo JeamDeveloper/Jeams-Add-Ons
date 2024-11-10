@@ -19,7 +19,6 @@ body {
 }
 
 /* Contenedor del fondo y elementos de la página */
-/* Estilo del contenedor principal */
 .mm-addon-page {
     position: relative;
     width: 100vw;
@@ -28,16 +27,16 @@ body {
     background-size: cover;
 }
 
-/* Agregar filtro oscuro sobre el fondo sin cubrir el contenido */
-.mm-addon-page::before {
+/* Pseudo-elemento para oscurecer la imagen de fondo */
+.mm-addon-page::after {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Filtro oscuro */
-    z-index: -1; /* Asegura que no cubra el contenido */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Negro con 30% de opacidad */
+    z-index: 0; /* Asegura que el pseudo-elemento esté debajo del contenido */
 }
 
 /* Estilo del título */
