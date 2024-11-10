@@ -19,6 +19,7 @@ body {
 }
 
 /* Estilo del contenedor del fondo */
+/* Estilo del contenedor del fondo */
 .mm-addon-page {
     position: relative;
     width: 100vw;
@@ -27,16 +28,18 @@ body {
     background-size: cover;
 }
 
-/* Pseudo-elemento para oscurecer la imagen de fondo */
-.mm-addon-page::after {
-    content: "";
+/* Contenedor con el fondo oscuro y el contenido dentro */
+.mm-addon-content {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); /* Negro con 30% de opacidad */
-    z-index: -1; /* Coloca el pseudo-elemento detrás del contenido */
+    background-color: rgba(0, 0, 0, 0.3); /* Oscurecimiento del 30% */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* Asegura que el contenido esté por encima de este contenedor */
 }
 
 /* Estilo del título */
