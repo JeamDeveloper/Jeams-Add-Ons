@@ -64,6 +64,7 @@ body {
 }
 
 /* Estilo del texto launcher_button */
+/* Estilo del texto launcher_button */
 .launcher_button {
     margin-top: 10px;
     font-size: 20px;
@@ -79,12 +80,13 @@ body {
     text-align: center;
     line-height: 50px;
     text-decoration: none;
-    font-family: 'MinecraftTen'; /* Forzar el uso de la fuente MinecraftTen */
+    font-family: 'MinecraftTen', sans-serif;
     border: none;
     padding: 0;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    user-select: none; /* Desactiva la selección de texto */
 }
 
+/* Cambios de imagen al hover */
 .launcher_button:hover {
     background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/5aff47a73f83947efecd99b74e50855641235ed6/resources/images/buttons/GreenPressesLauncherButton.png?raw=true');
 }
