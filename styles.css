@@ -251,13 +251,8 @@ body {
     box-sizing: border-box;
 }
 
-/* Ajustes de scroll y rebotes */
-html,
+/* Ajustes de scroll */
 body {
-    overscroll-behavior: contain;
-    scrollbar-width: none;
-}
-
-body::-webkit-scrollbar {
-    display: block;
+    overflow: auto;
+    overflow-x: hidden;
 }
