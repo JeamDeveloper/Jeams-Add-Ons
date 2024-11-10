@@ -14,7 +14,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: #1B1B1B;
-    overflow: hidden; /* Ocultar barra de scroll */
+    /* Restablecer overflow para permitir el scroll */
+    overflow: auto; /* Habilitar el scroll */
 }
 
 /* Contenedor del fondo y elementos de la página */
@@ -111,5 +112,5 @@ body {
 }
 
 body::-webkit-scrollbar {
-    display: none; /* Ocultar barra de scroll en Chrome, Safari y Edge */
+    display: block; /* Habilitar la barra de scroll en Chrome, Safari y Edge */
 }
