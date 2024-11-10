@@ -98,11 +98,11 @@ body {
 /* Estilo de texto más pequeño */
 .default-texto-small {
     font-family: 'MinecraftSeven'; /* Forzar el uso de la fuente MinecraftSeven */
-    font-size: 8px;
+    font-size: 14px;
     color: #D3D3D3;
     text-align: center;
     padding: 8px 10px;
-    margin: 0 10px;
+    margin: 0 28px;
     max-width: calc(100% - 20px);
     word-wrap: break-word;
     white-space: normal;
