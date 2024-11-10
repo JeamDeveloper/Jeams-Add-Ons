@@ -23,8 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let linkvertiseTimer;
     if (document.referrer.includes("linkvertise")) {
         linkvertiseTimer = setTimeout(() => {
-            // Si estuvo 25 segundos en Linkvertise, descarga el archivo directamente
-            downloadFile();
+            // Si estuvo 25 segundos en Linkvertise, cambiar el texto del botón
+            launcherButton.textContent = "Iniciar descarga";
+            launcherButton.removeEventListener('click', redirectToLinkvertise); // Eliminar el evento anterior
+            launcherButton.addEventListener('click', downloadFile); // Cambiar la acción a descarga
         }, 25000); // 25 segundos
     }
 
@@ -42,12 +44,22 @@ document.addEventListener('DOMContentLoaded', () => {
         link.click();
     }
 
+    // Función para redirigir al enlace de Linkvertise
+    function redirectToLinkvertise() {
+        window.location.href = 'https://link-hub.net/249306/mmaplus-addon-mcbd';
+    }
+
+    // Inicializar el click del botón en Linkvertise
+    launcherButton.addEventListener('click', redirectToLinkvertise);
+
     // Detectar cuando el usuario vuelve a la página desde Linkvertise
     window.addEventListener('focus', () => {
         if (linkvertiseTimer) {
             clearTimeout(linkvertiseTimer);
-            // Iniciar descarga directamente después de 25 segundos si vino de Linkvertise
-            downloadFile();
+            // Cambiar texto del botón y agregar el evento de descarga
+            launcherButton.textContent = "Iniciar descarga";
+            launcherButton.removeEventListener('click', redirectToLinkvertise); // Eliminar redirección
+            launcherButton.addEventListener('click', downloadFile); // Iniciar descarga al hacer clic
         }
     });
 });
