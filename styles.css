@@ -1,17 +1,13 @@
-/* Cargar fuentes */
-@font-face {
-    font-family: 'MinecraftTen';
-    src: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/0cca838d7d305ca0f2bd435159549f2493fde5fc/resources/fonts/MinecraftTen.otf?raw=true') format('opentype');
-}
+/* Importar las fuentes directamente */
+@import url('https://github.com/JeamDeveloper/Lightning-Cube/blob/0cca838d7d305ca0f2bd435159549f2493fde5fc/resources/fonts/MinecraftTen.otf?raw=true');
+@import url('https://github.com/JeamDeveloper/Lightning-Cube/blob/dee1a95e752b38112895b9d184856b838b955ff2/resources/fonts/MinecraftSeven.ttf?raw=true');
 
-@font-face {
-    font-family: 'MinecraftSeven';
-    src: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/dee1a95e752b38112895b9d184856b838b955ff2/resources/fonts/MinecraftSeven.ttf?raw=true') format('truetype');
-}
-
-/* Asegurarse de que la fuente se aplique correctamente */
+/* Fondo de la página */
 body {
-    font-family: 'MinecraftSeven', sans-serif !important; /* Fuente predeterminada */
+    margin: 0;
+    padding: 0;
+    background-color: #1B1B1B;
+    overflow: auto;
 }
 
 /* Estilo del contenedor del fondo */
@@ -30,7 +26,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); /* Oscurecimiento del 30% */
+    background-color: rgba(0, 0, 0, 0.3);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,12 +35,15 @@ body {
 
 /* Estilo del título */
 .addon-title {
-    font-family: 'MinecraftTen', sans-serif !important;
+    font-family: 'MinecraftTen';
     font-size: 26px;
     color: white;
     text-align: center;
     margin: 20px 0;
     user-select: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 /* Estilo del texto launcher_button */
@@ -63,19 +62,19 @@ body {
     text-align: center;
     line-height: 50px;
     text-decoration: none;
-    font-family: 'MinecraftTen', sans-serif !important;
+    font-family: 'MinecraftTen';
     border: none;
     padding: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
 }
 
-/* Cambios de imagen al hover */
 .launcher_button:hover {
     background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/5aff47a73f83947efecd99b74e50855641235ed6/resources/images/buttons/GreenPressesLauncherButton.png?raw=true');
 }
 
 /* Nuevo estilo de texto default-texto */
 .default-texto {
-    font-family: 'MinecraftSeven', sans-serif !important;
+    font-family: 'MinecraftSeven';
     font-size: 20px;
     color: #FFFFFF;
     text-align: center;
@@ -88,8 +87,9 @@ body {
     box-sizing: border-box;
 }
 
+/* Estilo de texto más pequeño */
 .default-texto-small {
-    font-family: 'MinecraftSeven', sans-serif !important;
+    font-family: 'MinecraftSeven';
     font-size: 8px;
     color: #D3D3D3;
     text-align: center;
@@ -118,7 +118,7 @@ body {
     color: white;
     text-align: center;
     padding: 20px 0;
-    margin-top: 16px;
+    margin-top: 16dp;
     position: relative;
     display: flex;
     justify-content: center;
@@ -128,14 +128,14 @@ body {
 
 /* Estilos para el texto de créditos */
 .credits-text {
-    font-family: 'MinecraftSeven', sans-serif !important;
+    font-family: 'MinecraftSeven';
     font-size: 10px;
     color: white;
     word-wrap: break-word;
     text-align: center;
     line-height: 1.5;
-    margin-left: 16px;
-    margin-right: 16px;
+    margin-left: 16dp;
+    margin-right: 16dp;
     padding: 0 16px;
     box-sizing: border-box;
 }
