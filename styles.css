@@ -20,10 +20,11 @@ body {
 /* Contenedor del fondo y elementos de la página */
 .mm-addon-page {
     position: relative;
-    width: 100vw;
-    height: 100vh;
-    background: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/f69418991959d3e14dfebefdc162dcc0ad8a75c9/resources/images/background/MM-Addon-Showcase-01.jpg?raw=true') no-repeat center center;
-    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro con opacidad */
+    min-height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Estilo del título */
