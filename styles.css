@@ -194,10 +194,11 @@ body {
     text-align: center;
 }
 
-/* Estilo de los enlaces al pasar el ratón */
-.social-link:hover {
-    color: #00A1FF; /* Color azul para el hover */
-    text-decoration: underline; /* Subrayado al pasar el ratón */
+/* Estilo de los enlaces sin cambio en el estilo al pasar el ratón o hacer clic */
+.social-link:hover,
+.social-link:focus {
+    color: #FFFFFF; /* Mantener color blanco */
+    text-decoration: none; /* Sin subrayado al pasar el ratón */
 }
 
 /* Estilos para el contenedor de créditos */
