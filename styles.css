@@ -85,7 +85,17 @@ body {
     user-select: none;
 }
 
-/* Estilo del texto launcher_button */
+/* Estilo específico para el texto "Usalo bajo tu propio riesgo..." con fondo */
+.highlighted-text {
+    background-color: #1B1B1B; /* Color de fondo oscuro */
+    padding: 10px 20px; /* Espacio interno alrededor del texto */
+    border-radius: 8px; /* Bordes redondeados opcionales */
+    margin: 10px 0; /* Espacio superior e inferior */
+    text-align: center; /* Centrar el texto */
+    width: auto; /* Ajustar al tamaño del texto */
+    display: inline-block; /* Mantener el tamaño ajustado al contenido */
+}
+
 /* Estilo del texto launcher_button */
 .launcher_button {
     margin-top: 10px;
