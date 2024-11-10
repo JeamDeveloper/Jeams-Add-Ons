@@ -99,11 +99,6 @@ body {
     margin: 5px 0;
 }
 
-/* Cambios de imagen al hover */
-.launcher_button:hover {
-    background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/5aff47a73f83947efecd99b74e50855641235ed6/resources/images/buttons/GreenPressesLauncherButton.png?raw=true');
-}
-
 /* Nuevo estilo de texto default-texto */
 .default-texto {
     font-family: 'MinecraftSeven';
