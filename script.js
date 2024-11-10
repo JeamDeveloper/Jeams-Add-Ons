@@ -1,40 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
     const launcherButton = document.getElementById('launcher_button');
 
-    // URL de las imágenes
+    // URL de la imagen normal y presionada
     const normalImageUrl = 'https://github.com/JeamDeveloper/Lightning-Cube/blob/5aff47a73f83947efecd99b74e50855641235ed6/resources/images/buttons/GreenLauncherButton.png?raw=true';
     const pressedImageUrl = 'https://github.com/JeamDeveloper/Lightning-Cube/blob/5aff47a73f83947efecd99b74e50855641235ed6/resources/images/buttons/GreenPressesLauncherButton.png?raw=true';
-    const downloadImageUrl = 'https://github.com/JeamDeveloper/Lightning-Cube/blob/5aff47a73f83947efecd99b74e50855641235ed6/resources/images/buttons/GreenDownloadLauncherButton.png?raw=true';
-
-    // Cargar imágenes
+    
+    // Cargar imagen normal y presionada
     const normalImage = new Image();
     normalImage.src = normalImageUrl;
     const pressedImage = new Image();
     pressedImage.src = pressedImageUrl;
-    const downloadImage = new Image();
-    downloadImage.src = downloadImageUrl;
 
-    // Restablecer la imagen al pasar el mouse por encima
+    // Cambiar imagen al pasar el ratón por encima
     launcherButton.addEventListener('mouseenter', () => {
         launcherButton.style.backgroundImage = `url(${pressedImageUrl})`;
     });
 
+    // Volver a la imagen normal cuando el ratón deja de estar encima
     launcherButton.addEventListener('mouseleave', () => {
         if (launcherButton.innerText !== "Iniciar descarga") {
             launcherButton.style.backgroundImage = `url(${normalImageUrl})`;
         }
     });
 
-    // Temporizador para detectar el tiempo en Linkvertise
-    let timer;
+    // Variables para el seguimiento de la visita a Linkvertise
     let hasVisitedLinkvertise = false;
 
-    // Iniciar el temporizador al cargar la página
+    // Temporizador para 25 segundos desde la carga de la página
     setTimeout(() => {
         if (!hasVisitedLinkvertise) {
             hasVisitedLinkvertise = true;
             launcherButton.innerText = "Iniciar descarga";
-            launcherButton.style.backgroundImage = `url(${downloadImageUrl})`; // Cambiar a la imagen de descarga
+            launcherButton.style.backgroundImage = `url(${normalImageUrl})`; // Mantener la imagen normal
         }
     }, 25000); // 25 segundos
 
@@ -48,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             link.download = "Murder Mystery Assistant +.mcpack";
             link.click();
         } else {
-            // Ir a Linkvertise si no ha hecho click para descargar
+            // Ir a Linkvertise si el texto del botón no es "Iniciar descarga"
             window.location.href = "https://link-hub.net/249306/mmaplus-addon-mcbd";
         }
     });
