@@ -85,11 +85,10 @@ body {
     user-select: none;
 }
 
-/* Estilo específico para el texto "Usalo bajo tu propio riesgo..." con fondo */
+/* Estilo específico para el texto "Usalo bajo tu propio riesgo..." con fondo rectangular sin redondeado y con transparencia */
 .highlighted-text {
-    background-color: #1B1B1B; /* Color de fondo oscuro */
+    background-color: rgba(27, 27, 27, 0.5); /* Fondo #1B1B1B con 50% de transparencia */
     padding: 10px 20px; /* Espacio interno alrededor del texto */
-    border-radius: 8px; /* Bordes redondeados opcionales */
     margin: 10px 0; /* Espacio superior e inferior */
     text-align: center; /* Centrar el texto */
     width: auto; /* Ajustar al tamaño del texto */
