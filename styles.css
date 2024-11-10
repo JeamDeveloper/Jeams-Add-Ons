@@ -100,14 +100,21 @@ body {
     height: 100%;
 }
 
-/* Estilo de los créditos fuera del contenedor principal */
-.credits {
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
-    color: white;
+/* Cargar la fuente MinecraftSeven */
+@font-face {
+    font-family: 'MinecraftSeven';
+    src: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/9fd925f114d71359e6de2962dcfa8430e98cb743/resources/fonts/MinecraftSeven.ttf?raw=true') format('truetype');
+}
+
+/* Estilos de credits */
+#credits {
+    background-color: #1B1B1B; /* Fondo oscuro */
+    color: white; /* Texto blanco */
+    font-family: 'MinecraftSeven', sans-serif; /* Usar la fuente MinecraftSeven */
+    font-size: 16px; /* Ajusta el tamaño de la fuente */
     text-align: center;
-    padding: 20px 0; /* Espaciado alrededor del texto */
-    width: 100%;
-    margin-top: 20px; /* Asegura que esté separado de los elementos anteriores */
+    padding: 20px;
+    margin-top: 30px;
 }
 
 /* Estilo del texto de créditos */
