@@ -122,11 +122,15 @@ body {
 /* Estilos para el texto de créditos */
 .credits-text {
     font-family: 'MinecraftSeven';
-    font-size: 14px;
+    font-size: 10px;
     color: white;
     word-wrap: break-word;
     text-align: center;
     line-height: 1.5; /* Espaciado entre líneas */
+    margin-left: 16dp; /* Margen izquierdo de 16dp */
+    margin-right: 16dp; /* Margen derecho de 16dp */
+    padding: 0 16px; /* Añadir un poco de padding adicional por seguridad */
+    box-sizing: border-box; /* Para incluir el padding dentro del tamaño total del contenedor */
 }
 
 /* Ajustes de scroll y rebotes */
