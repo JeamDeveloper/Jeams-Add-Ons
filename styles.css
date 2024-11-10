@@ -19,12 +19,25 @@ body {
 }
 
 /* Contenedor del fondo y elementos de la página */
+/* Estilo del contenedor principal */
 .mm-addon-page {
     position: relative;
     width: 100vw;
     height: 100vh;
     background: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/f69418991959d3e14dfebefdc162dcc0ad8a75c9/resources/images/background/MM-Addon-Showcase-01.jpg?raw=true') no-repeat center center;
     background-size: cover;
+}
+
+/* Agregar filtro oscuro sobre el fondo sin cubrir el contenido */
+.mm-addon-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Filtro oscuro */
+    z-index: -1; /* Asegura que no cubra el contenido */
 }
 
 /* Estilo del título */
