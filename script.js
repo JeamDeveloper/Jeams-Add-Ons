@@ -11,13 +11,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const pressedImage = new Image();
     pressedImage.src = pressedImageUrl;
 
-    // Cambiar imagen al pasar el ratón por encima
+    // Cambiar imagen cuando se pasa el ratón por encima (hover) o se toca en una pantalla táctil
     launcherButton.addEventListener('mouseenter', () => {
         launcherButton.style.backgroundImage = `url(${pressedImageUrl})`;
     });
 
-    // Volver a la imagen normal cuando el ratón deja de estar encima
+    // Cambiar imagen cuando se toca en dispositivos táctiles (touchstart)
+    launcherButton.addEventListener('touchstart', () => {
+        launcherButton.style.backgroundImage = `url(${pressedImageUrl})`;
+    });
+
+    // Volver a la imagen normal cuando el ratón deja de estar encima o se deja de tocar
     launcherButton.addEventListener('mouseleave', () => {
+        if (launcherButton.innerText !== "Iniciar descarga") {
+            launcherButton.style.backgroundImage = `url(${normalImageUrl})`;
+        }
+    });
+
+    // Volver a la imagen normal cuando se termina el toque en dispositivos táctiles (touchend)
+    launcherButton.addEventListener('touchend', () => {
         if (launcherButton.innerText !== "Iniciar descarga") {
             launcherButton.style.backgroundImage = `url(${normalImageUrl})`;
         }
