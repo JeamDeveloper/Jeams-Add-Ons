@@ -9,18 +9,11 @@
     src: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/dee1a95e752b38112895b9d184856b838b955ff2/resources/fonts/MinecraftSeven.ttf?raw=true') format('truetype');
 }
 
-/* Fondo de la página */
+/* Asegurarse de que la fuente se aplique correctamente */
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #1B1B1B;
-    /* Restablecer overflow para permitir el scroll */
-    overflow: auto; /* Habilitar el scroll */
+    font-family: 'MinecraftSeven', sans-serif !important; /* Fuente predeterminada */
 }
 
-/* Estilo del contenedor del fondo */
-/* Estilo del contenedor del fondo */
-/* Estilo del contenedor del fondo */
 /* Estilo del contenedor del fondo */
 .mm-addon-page {
     position: relative;
@@ -41,13 +34,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1; /* Asegura que el contenido esté por encima de este contenedor */
+    z-index: 1;
 }
 
 /* Estilo del título */
 .addon-title {
-    font-family: 'MinecraftTen', sans-serif;
-    font-size: 26px; /* Tamaño 26dp */
+    font-family: 'MinecraftTen', sans-serif !important;
+    font-size: 26px;
     color: white;
     text-align: center;
     margin: 20px 0;
@@ -70,7 +63,7 @@ body {
     text-align: center;
     line-height: 50px;
     text-decoration: none;
-    font-family: 'MinecraftTen', sans-serif;
+    font-family: 'MinecraftTen', sans-serif !important;
     border: none;
     padding: 0;
 }
@@ -82,31 +75,31 @@ body {
 
 /* Nuevo estilo de texto default-texto */
 .default-texto {
-    font-family: 'MinecraftSeven';
-    font-size: 20px; /* Ajuste a px en lugar de dp para CSS */
+    font-family: 'MinecraftSeven', sans-serif !important;
+    font-size: 20px;
     color: #FFFFFF;
-    text-align: center; /* Centra el texto */
-    padding: 10px 10px; /* Espacio superior/inferior de 10px y laterales de 10px */
-    margin: 0 10px; /* Margen lateral de 10px para evitar que toque los bordes */
-    max-width: calc(100% - 20px); /* Asegura que el texto se mantenga dentro del margen */
-    word-wrap: break-word; /* Permite el salto de palabra */
-    white-space: normal; /* Permite el salto de línea automático */
-    overflow-wrap: break-word; /* Rompe palabras largas si es necesario */
-    box-sizing: border-box; /* Incluye padding y margen en el tamaño del elemento */
+    text-align: center;
+    padding: 10px 10px;
+    margin: 0 10px;
+    max-width: calc(100% - 20px);
+    word-wrap: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
 }
 
 .default-texto-small {
-    font-family: 'MinecraftSeven';
-    font-size: 8px; /* Tamaño ligeramente más pequeño */
-    color: #D3D3D3; /* Gris claro */
-    text-align: center; /* Centra el texto */
-    padding: 8px 10px; /* Espacio superior/inferior de 8px y laterales de 10px */
-    margin: 0 10px; /* Margen lateral de 10px para evitar que toque los bordes */
-    max-width: calc(100% - 20px); /* Asegura que el texto se mantenga dentro del margen */
-    word-wrap: break-word; /* Permite el salto de palabra */
-    white-space: normal; /* Permite el salto de línea automático */
-    overflow-wrap: break-word; /* Rompe palabras largas si es necesario */
-    box-sizing: border-box; /* Incluye padding y margen en el tamaño del elemento */
+    font-family: 'MinecraftSeven', sans-serif !important;
+    font-size: 8px;
+    color: #D3D3D3;
+    text-align: center;
+    padding: 8px 10px;
+    margin: 0 10px;
+    max-width: calc(100% - 20px);
+    word-wrap: break-word;
+    white-space: normal;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
 }
 
 /* Centrar elementos vertical y horizontalmente */
@@ -121,11 +114,11 @@ body {
 /* Estilos para el contenedor de créditos */
 .credits {
     width: 100%;
-    background-color: #1B1B1B; /* Fondo oscuro */
+    background-color: #1B1B1B;
     color: white;
     text-align: center;
     padding: 20px 0;
-    margin-top: 16dp; /* Márgenes de 16dp arriba del contenedor de créditos */
+    margin-top: 16px;
     position: relative;
     display: flex;
     justify-content: center;
@@ -135,25 +128,25 @@ body {
 
 /* Estilos para el texto de créditos */
 .credits-text {
-    font-family: 'MinecraftSeven';
+    font-family: 'MinecraftSeven', sans-serif !important;
     font-size: 10px;
     color: white;
     word-wrap: break-word;
     text-align: center;
-    line-height: 1.5; /* Espaciado entre líneas */
-    margin-left: 16dp; /* Margen izquierdo de 16dp */
-    margin-right: 16dp; /* Margen derecho de 16dp */
-    padding: 0 16px; /* Añadir un poco de padding adicional por seguridad */
-    box-sizing: border-box; /* Para incluir el padding dentro del tamaño total del contenedor */
+    line-height: 1.5;
+    margin-left: 16px;
+    margin-right: 16px;
+    padding: 0 16px;
+    box-sizing: border-box;
 }
 
 /* Ajustes de scroll y rebotes */
 html,
 body {
-    overscroll-behavior: contain; /* Desactiva efecto de rebote al hacer scroll rápido */
-    scrollbar-width: none; /* Ocultar barra de scroll en Firefox */
+    overscroll-behavior: contain;
+    scrollbar-width: none;
 }
 
 body::-webkit-scrollbar {
-    display: block; /* Habilitar la barra de scroll en Chrome, Safari y Edge */
+    display: block;
 }
