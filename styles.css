@@ -78,6 +78,24 @@ body {
     padding: 0;
 }
 
+/* Contenedor de créditos en la parte inferior */
+.credits {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro semitransparente */
+    color: white;
+    text-align: center;
+    padding: 20px 0; /* Espaciado alrededor del texto */
+}
+
+/* Estilo del texto de créditos */
+.credits-text {
+    font-family: 'MinecraftSeven', sans-serif;
+    font-size: 16px; /* Tamaño de fuente ajustado */
+    margin: 5px 0;
+}
+
 /* Cambios de imagen al hover */
 .launcher_button:hover {
     background-image: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/5aff47a73f83947efecd99b74e50855641235ed6/resources/images/buttons/GreenPressesLauncherButton.png?raw=true');
