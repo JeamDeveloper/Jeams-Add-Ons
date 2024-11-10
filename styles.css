@@ -174,10 +174,10 @@ body {
 /* Título "Síguenos en nuestras redes sociales" */
 .social-title {
     font-family: 'MinecraftSeven'; /* Fuente MinecraftSeven */
-    font-size: 20px; /* Tamaño de fuente */
+    font-size: 12px; /* Tamaño de fuente reducido en 8dp (si antes era 20px) */
     color: #FFFFFF; /* Color blanco para el texto */
     text-align: center; /* Centrar el texto */
-    margin-bottom: 20px; /* Espacio inferior */
+    margin: 0 16px 20px 16px; /* Margen de 16px a los lados y 20px abajo */
 }
 
 /* Contenedor para los enlaces de MCPEDL e Instagram */
