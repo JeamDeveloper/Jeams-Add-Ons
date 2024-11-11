@@ -54,7 +54,7 @@ body {
     display: flex;
     align-items: center;
     text-decoration: none; /* Eliminar subrayado */
-    color: rgba(255, 255, 255, 0.8); /* Asegurarnos de que el texto esté en blanco */
+    color: white /* Asegurarnos de que el texto esté en blanco */
 }
 
 /* Estilo del contenedor del fondo */
