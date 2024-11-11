@@ -38,6 +38,15 @@ body {
     width: 40px; /* Ancho de la imagen */
     height: 40px; /* Altura de la imagen */
     object-fit: cover; /* Mantener proporción de la imagen */
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+
+/* Estilo del texto en el toolbar */
+.toolbar-text {
+    font-family: 'MinecraftTen'; /* Fuente MinecraftTen */
+    font-size: 24px; /* Tamaño de la fuente */
+    color: white; /* Color blanco */
+    user-select: none; /* Desactivar selección de texto */
 }
 /* Estilo del contenedor del fondo */
 .mm-addon-page {
