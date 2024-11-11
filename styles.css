@@ -84,7 +84,7 @@ body {
 }
 
 /* Estilo del título principal */
-.addon-title {
+.page-title {
     font-family: 'MinecraftTen';
     font-size: 26px; /* Tamaño 26dp */
     color: white;
@@ -95,7 +95,7 @@ body {
 }
 
 /* Estilo del título más pequeño, justo debajo del principal */
-.addon-title-small {
+.page-description {
     font-family: 'MinecraftTen';
     font-size: 22px; /* 4dp menos que el título principal */
     color: white; /* Texto en blanco */
