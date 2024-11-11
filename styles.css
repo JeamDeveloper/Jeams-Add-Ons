@@ -43,10 +43,10 @@ body {
 
 /* Estilo del texto en el toolbar */
 .toolbar-text {
-    font-family: 'MinecraftTen'; /* Fuente MinecraftTen */
-    font-size: 16px; /* Tamaño de la fuente */
-    color: white; /* Color blanco */
-    user-select: none; /* Desactivar selección de texto */
+    font-family: 'MinecraftTen'; /* Usamos la misma fuente */
+    font-size: 22px; /* Tamaño del texto */
+    color: rgba(255, 255, 255, 0.8); /* Blanco con 80% de opacidad */
+    margin-left: 10px; /* Separación con la imagen */
 }
 
 /* Enlace en el toolbar */
@@ -54,7 +54,7 @@ body {
     display: flex;
     align-items: center;
     text-decoration: none; /* Eliminar subrayado */
-    color: white; /* Asegurarnos de que el texto esté en blanco */
+    color: rgba(255, 255, 255, 0.8); /* Asegurarnos de que el texto esté en blanco */
 }
 
 /* Estilo del contenedor del fondo */
