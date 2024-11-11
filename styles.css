@@ -51,11 +51,26 @@ body {
 .home-bg-page {
     position: relative;
     width: 100vw;
-    height: auto; /* Ajusta el alto al contenido interno */
+    height: auto; /* Ajuste al alto del contenido */
     background: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/a7a0a58a7268f218c2a8938ac1f4d025fb9c1cf0/resources/images/background/Home-Screen-Page-Background.JPEG?raw=true') 
         no-repeat center top;
-    background-size: 100% auto; /* Ajusta el ancho al 100% y el alto automáticamente */
-    background-position: top center; /* Muestra la parte superior de la imagen */
+    background-size: 100% auto; /* Ajusta el ancho y el alto automáticamente sin deformar */
+    background-position: top center; /* Recorta la parte inferior si es necesario */
+}
+
+.home-page-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%; /* Asegura que cubra todo el contenido, pero también puede crecer */
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    padding: 20px; /* Ajusta este valor según sea necesario */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */
 }
 
 /* Contenedor con el fondo oscuro y el contenido dentro */
