@@ -44,10 +44,19 @@ body {
 /* Estilo del texto en el toolbar */
 .toolbar-text {
     font-family: 'MinecraftTen'; /* Fuente MinecraftTen */
-    font-size: 24px; /* Tamaño de la fuente */
+    font-size: 16px; /* Tamaño de la fuente */
     color: white; /* Color blanco */
     user-select: none; /* Desactivar selección de texto */
 }
+
+/* Enlace en el toolbar */
+.toolbar-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Eliminar subrayado */
+    color: white; /* Asegurarnos de que el texto esté en blanco */
+}
+
 /* Estilo del contenedor del fondo */
 .mm-addon-page {
     position: relative;
