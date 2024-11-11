@@ -51,11 +51,14 @@ body {
 .home-bg-page {
     position: relative;
     width: 100vw;
-    min-height: 100vh; /* Mínimo para evitar que se vea recortado en pantallas más grandes */
+    min-height: 100vh; /* Asegura que cubra al menos toda la ventana */
     height: auto; /* Ajuste automático al contenido */
     background: url('https://github.com/JeamDeveloper/Lightning-Cube/blob/a7a0a58a7268f218c2a8938ac1f4d025fb9c1cf0/resources/images/background/Home-Screen-Page-Background.JPEG?raw=true') 
         no-repeat center center;
-    background-size: cover;
+    background-size: cover; /* Cubrir todo el contenedor sin deformar */
+    background-position: top center; /* Mantiene la parte superior visible */
+    background-attachment: fixed; /* Evita el estiramiento en desplazamiento */
+    overflow: hidden; /* Oculta el exceso del fondo si se recorta */
 }
 
 /* Contenedor con el fondo oscuro y el contenido dentro */
