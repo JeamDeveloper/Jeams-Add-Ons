@@ -43,7 +43,7 @@
 <!-- Contenedor de lista de submissions -->
 <div id="submissions-container">
     <h2>Submissions</h2>
-    <div id="submissions-list"></div>
+    <div id="submissions-list">Cargando...</div>
 </div>
 
 <div class="social-container">
@@ -64,19 +64,7 @@
 
 <!-- Cargar script -->
 <script src="homescript.js"></script>
-<script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('sw.js').then(registration => {
-                console.log('Service Worker registrado con éxito:', registration);
-            }).catch(error => {
-                console.log('Error al registrar el Service Worker:', error);
-            });
-        });
-    }
-</script>
 <script type="module">
-    // Importa Firebase
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
     import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
@@ -102,11 +90,14 @@
         const submissionsList = document.getElementById("submissions-list");
         const dbRef = ref(db, "submissions");
 
-        submissionsList.innerHTML = ""; // Limpiar contenido previo
+        submissionsList.textContent = "Cargando..."; // Texto mientras carga
 
         try {
-            const snapshot = await get(child(ref(db), "submissions"));
+            const snapshot = await get(child(dbRef, "/"));
             if (snapshot.exists()) {
+                submissionsList.innerHTML = ""; // Limpiar mensaje de carga
+                let foundData = false;
+
                 snapshot.forEach((categorySnapshot) => {
                     const category = categorySnapshot.key;
                     const categoryContainer = document.createElement("div");
@@ -117,7 +108,6 @@
                     categoryContainer.appendChild(categoryTitle);
                     categoryContainer.appendChild(categoryList);
 
-                    // Iterar sobre los elementos de cada categoría
                     categorySnapshot.forEach((itemSnapshot) => {
                         const postData = itemSnapshot.val();
                         const postName = postData?.postname || "Sin nombre";
@@ -125,15 +115,24 @@
                         const listItem = document.createElement("li");
                         listItem.textContent = postName;
                         categoryList.appendChild(listItem);
+                        foundData = true;
                     });
 
-                    submissionsList.appendChild(categoryContainer);
+                    if (categoryList.childElementCount > 0) {
+                        submissionsList.appendChild(categoryContainer);
+                    }
                 });
+
+                // Mostrar mensaje si no hay datos
+                if (!foundData) {
+                    submissionsList.textContent = "No se encontraron datos.";
+                }
             } else {
                 submissionsList.textContent = "No se encontraron datos.";
             }
         } catch (error) {
             console.error("Error al obtener datos:", error);
+            submissionsList.textContent = "No se pudo obtener los datos.";
         }
     }
 
