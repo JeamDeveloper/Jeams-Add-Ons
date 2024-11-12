@@ -199,6 +199,44 @@ body {
     height: 100%;
 }
 
+#submissions-container {
+    background-color: #1B1B1B;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    color: #FFF;
+}
+
+#submissions-container h2 {
+    text-align: center;
+    font-size: 24px;
+}
+
+.category-container {
+    margin-bottom: 20px;
+}
+
+.category-container h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #FFD700; /* Color dorado para resaltar */
+}
+
+.category-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.post-item {
+    padding: 10px;
+    background-color: #2A2A2A;
+    border-radius: 5px;
+    margin: 5px 0;
+    text-align: center;
+    color: #FFF;
+}
 
 /* Contenedor de redes sociales */
 .social-container {
