@@ -40,6 +40,12 @@
     </div>
 </div>
 
+<!-- Contenedor de lista de submissions -->
+<div id="submissions-container">
+    <h2>Submissions</h2>
+    <div id="submissions-list"></div>
+</div>
+
 <div class="social-container">
     <p class="social-title">Síguenos en nuestras redes sociales</p>
     <div class="social-links">
@@ -70,27 +76,68 @@
     }
 </script>
 <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+    // Importa Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+    import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyAPKImW3I6rYMZ95bY97KUo3qDLAFJF16Y",
-    authDomain: "lightning-cube-3edce.firebaseapp.com",
-    projectId: "lightning-cube-3edce",
-    storageBucket: "lightning-cube-3edce.firebasestorage.app",
-    messagingSenderId: "833313409687",
-    appId: "1:833313409687:web:bb34600cea6aeda0c177d2",
-    measurementId: "G-9KTSWKDJ6F"
-  };
+    // Configuración de Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyAPKImW3I6rYMZ95bY97KUo3qDLAFJF16Y",
+        authDomain: "lightning-cube-3edce.firebaseapp.com",
+        projectId: "lightning-cube-3edce",
+        storageBucket: "lightning-cube-3edce.appspot.com",
+        messagingSenderId: "833313409687",
+        appId: "1:833313409687:web:bb34600cea6aeda0c177d2",
+        measurementId: "G-9KTSWKDJ6F"
+    };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+    // Inicializa Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const db = getDatabase();
+
+    // Función para obtener los datos de 'submissions'
+    async function obtenerSubmissions() {
+        const dbRef = ref(db, "submissions");
+        const submissionsList = document.getElementById("submissions-list");
+        submissionsList.innerHTML = ""; // Limpiar contenido previo
+
+        try {
+            const snapshot = await get(child(ref(db), "submissions"));
+            if (snapshot.exists()) {
+                snapshot.forEach((categorySnapshot) => {
+                    const category = categorySnapshot.key;
+                    const categoryContainer = document.createElement("div");
+                    const categoryTitle = document.createElement("h3");
+                    const categoryList = document.createElement("ul");
+
+                    categoryTitle.textContent = category;
+                    categoryContainer.appendChild(categoryTitle);
+                    categoryContainer.appendChild(categoryList);
+
+                    // Iterar sobre child keys de la categoría
+                    categorySnapshot.forEach((postSnapshot) => {
+                        const postName = postSnapshot.val().postname;
+                        if (postName) {
+                            const listItem = document.createElement("li");
+                            listItem.textContent = postName;
+                            categoryList.appendChild(listItem);
+                        }
+                    });
+
+                    submissionsList.appendChild(categoryContainer);
+                });
+            } else {
+                submissionsList.textContent = "No se encontraron datos.";
+            }
+        } catch (error) {
+            console.error("Error al obtener datos:", error);
+        }
+    }
+
+    // Llamada a la función
+    document.addEventListener("DOMContentLoaded", obtenerSubmissions);
 </script>
 </body>
 
