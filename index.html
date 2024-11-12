@@ -32,7 +32,7 @@
     <div class="darker-page-content">
         <div class="container">
             <!-- Título del addon -->
-            <div class="page-title">Pagina Principal</div>
+            <div class="page-title">Página Principal</div>
 
             <!-- Texto descriptivo del addon -->
             <div class="default-texto">¡Descubre nuestros Add-Ons y Paquetes de texturas!</div>
@@ -99,8 +99,9 @@
 
     // Función para obtener los datos de 'submissions'
     async function obtenerSubmissions() {
-        const dbRef = ref(db, "submissions");
         const submissionsList = document.getElementById("submissions-list");
+        const dbRef = ref(db, "submissions");
+
         submissionsList.innerHTML = ""; // Limpiar contenido previo
 
         try {
@@ -116,14 +117,14 @@
                     categoryContainer.appendChild(categoryTitle);
                     categoryContainer.appendChild(categoryList);
 
-                    // Iterar sobre child keys de la categoría
-                    categorySnapshot.forEach((postSnapshot) => {
-                        const postName = postSnapshot.val().postname;
-                        if (postName) {
-                            const listItem = document.createElement("li");
-                            listItem.textContent = postName;
-                            categoryList.appendChild(listItem);
-                        }
+                    // Iterar sobre los elementos de cada categoría
+                    categorySnapshot.forEach((itemSnapshot) => {
+                        const postData = itemSnapshot.val();
+                        const postName = postData?.postname || "Sin nombre";
+
+                        const listItem = document.createElement("li");
+                        listItem.textContent = postName;
+                        categoryList.appendChild(listItem);
                     });
 
                     submissionsList.appendChild(categoryContainer);
