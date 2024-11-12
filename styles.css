@@ -199,36 +199,71 @@ body {
     height: 100%;
 }
 
-#submissions-container {
-    background-color: #1B1B1B;
-    padding: 20px;
-    margin: 20px auto;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 600px;
-    color: #FFF;
+/* Contenedor de submissions */
+.submissions-container {
+    display: flex;
+    flex-direction: column; /* Alinear en columna para los elementos internos */
+    align-items: center; /* Centrar los elementos horizontalmente */
+    width: 100%;
+    background-color: #141414; /* Fondo gris oscuro */
+    padding: 20px 0;
+    justify-content: center; /* Centrado vertical de los elementos */
+    border-top: 2px solid #FFD700; /* Línea dorada superior para separar visualmente */
 }
 
-#submissions-container h2 {
+/* Título "Explora nuestras submissions" */
+.submissions-title {
+    font-family: 'MinecraftSeven'; /* Fuente MinecraftSeven */
+    font-size: 14px; /* Tamaño de fuente */
+    color: #FFFFFF; /* Color blanco para el texto */
+    text-align: center; /* Centrar el texto */
+    margin: 0 16px 20px 16px; /* Margen de 16px a los lados y 20px abajo */
+}
+
+/* Contenedor para los enlaces de submissions (categorías) */
+.submissions-links {
+    display: flex;
+    flex-direction: column; /* Ordenar en columna para mejor legibilidad */
+    align-items: center; /* Centrar los elementos horizontalmente */
+    gap: 20px; /* Espacio entre las categorías */
+    width: auto;
+}
+
+/* Estilo para los enlaces de las categorías (Texturepacks, Addons, etc.) */
+.submissions-link {
+    font-family: 'MinecraftSeven'; /* Fuente MinecraftSeven */
+    font-size: 16px; /* Tamaño de fuente */
+    color: #FFFFFF; /* Color blanco para los enlaces */
+    text-decoration: none; /* Eliminar subrayado */
     text-align: center;
-    font-size: 24px;
+    padding: 10px 20px;
+    background-color: #2A2A2A; /* Fondo más oscuro para destacar */
+    border-radius: 5px; /* Bordes redondeados */
+    width: 80%; /* Ancho limitado para mejor apariencia */
 }
 
-.category-container {
-    margin-bottom: 20px;
+/* Estilo cuando el enlace es presionado */
+.submissions-link:active {
+    color: #FFD700; /* Cambiar a color dorado cuando es presionado */
+    text-decoration: underline; /* Subrayar al presionar */
 }
 
-.category-container h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #FFD700; /* Color dorado para resaltar */
+/* Estilo cuando el enlace tiene foco (en dispositivos táctiles o teclado) */
+.submissions-link:focus-visible {
+    color: #FFD700; /* Cambiar a color dorado cuando tiene foco */
+    text-decoration: underline; /* Subrayar cuando tiene foco */
 }
 
-.category-list {
-    list-style-type: none;
-    padding: 0;
+/* Mensaje de "No se encontró contenido" */
+.no-content {
+    font-family: 'MinecraftSeven'; /* Fuente MinecraftSeven */
+    font-size: 14px; /* Tamaño de fuente */
+    color: #FF5733; /* Color naranja para resaltar */
+    text-align: center; /* Centrar el texto */
+    padding: 10px 0;
 }
 
+/* Estilo para los items de las publicaciones */
 .post-item {
     padding: 10px;
     background-color: #2A2A2A;
@@ -236,6 +271,15 @@ body {
     margin: 5px 0;
     text-align: center;
     color: #FFF;
+}
+
+/* Estilo para el texto de error al obtener datos */
+.error-message {
+    font-family: 'MinecraftSeven'; /* Fuente MinecraftSeven */
+    font-size: 14px; /* Tamaño de fuente */
+    color: #FF0000; /* Rojo para destacar el error */
+    text-align: center; /* Centrar el texto */
+    padding: 10px 0;
 }
 
 /* Contenedor de redes sociales */
