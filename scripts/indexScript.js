@@ -24,7 +24,7 @@ const fetchAllPosts = async () => {
                 categorySnap.forEach((postSnap) => {
                     const postData = postSnap.val();
 
-                    // Obtener los nuevos childkeys: postname, owner, thumbnail
+                    // Obtener los nuevos childkeys: postname, owner, thumbnail, isExternalURL, ExternalURL
                     const postName = postData?.postname || "Sin nombre";
                     const postOwner = postData?.owner || "Desconocido";
                     const postThumbnail = postData?.thumbnail || "https://via.placeholder.com/150"; // Placeholder si no hay thumbnail
@@ -75,15 +75,18 @@ const fetchAllPosts = async () => {
 
                 // Manejador de evento de clic para redirigir con el parámetro id
                 listItem.addEventListener("click", () => {
-                    // Verificar los valores antes de redirigir
-                    console.log("isExternalURL:", post.isExternalURL, "externalURL:", post.externalURL);
+                    // Mostrar los valores en un alert (cuadro de diálogo)
+                    alert(`Clic en el post: ${post.name}\n\nisExternalURL: ${post.isExternalURL}\nexternalURL: ${post.externalURL}`);
 
-                    // Si el post tiene isExternalURL como true y externalURL no está vacío, redirigir a la URL externa
+                    // Verificar si isExternalURL es true y si existe ExternalURL
                     if (post.isExternalURL === true && post.externalURL) {
-                        window.location.href = post.externalURL;
+                        // Si es un enlace externo, redirigir a la URL externa
+                        alert(`Redirigiendo a URL externa: ${post.externalURL}`);
+                        window.location.href = post.externalURL; // Redirigir a la URL externa
                     } else {
                         // Si no es externo, redirigir con el parámetro id
                         const postId = listItem.getAttribute("data-id");
+                        alert(`Redirigiendo al ID del post: ${postId}`);
                         window.location.href = `https://lightningcube.netlify.app/submissionview?id=${postId}`;
                     }
                 });
@@ -100,7 +103,7 @@ const fetchAllPosts = async () => {
             container.textContent = "No se encontraron datos.";
         }
     } catch (error) {
-        console.error("Error al obtener datos:", error);
+        alert("Error al obtener los datos: " + error);
         container.textContent = "No se pudo obtener los datos.";
     }
 };
