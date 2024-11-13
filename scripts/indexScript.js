@@ -29,16 +29,16 @@ const fetchAllPosts = async () => {
                     const postOwner = postData?.owner || "Desconocido";
                     const postThumbnail = postData?.thumbnail || "https://via.placeholder.com/150"; // Placeholder si no hay thumbnail
                     const postDate = postData?.date || "2000-01-01"; // Aseguramos que tenga una fecha
-                    const isExternalURL = postData?.isExternalURL || false;
-                    const externalURL = postData?.ExternalURL || "";
+                    const isExternalURL = postData?.isExternalURL || false; // Verificamos si es URL externa
+                    const externalURL = postData?.ExternalURL || ""; // Obtenemos la URL externa si existe
 
                     postsArray.push({
                         name: postName,
                         owner: postOwner,
                         thumbnail: postThumbnail,
                         date: new Date(postDate),
-                        isExternalURL: isExternalURL,
-                        externalURL: externalURL,
+                        isExternalURL: isExternalURL,  // Agregamos esta propiedad
+                        externalURL: externalURL       // Agregamos esta propiedad
                     });
                 });
             });
@@ -73,15 +73,18 @@ const fetchAllPosts = async () => {
                 listItem.appendChild(textElement);
                 listItem.appendChild(ownerElement);
 
-                // Manejador de evento de clic para redirigir
+                // Manejador de evento de clic para redirigir con el parámetro id
                 listItem.addEventListener("click", () => {
-                    if (post.isExternalURL && post.externalURL) {
-                        // Si el post es externo, redirigir a la URL externa
+                    // Verificar los valores antes de redirigir
+                    console.log("isExternalURL:", post.isExternalURL, "externalURL:", post.externalURL);
+
+                    // Si el post tiene isExternalURL como true y externalURL no está vacío, redirigir a la URL externa
+                    if (post.isExternalURL === true && post.externalURL) {
                         window.location.href = post.externalURL;
                     } else {
                         // Si no es externo, redirigir con el parámetro id
-                        const postId = listItem.getAttribute("data-id"); // Obtener el id del post
-                        window.location.href = `https://lightningcube.netlify.app/submissionview?id=${postId}`; // Redirigir con el parámetro id
+                        const postId = listItem.getAttribute("data-id");
+                        window.location.href = `https://lightningcube.netlify.app/submissionview?id=${postId}`;
                     }
                 });
 
