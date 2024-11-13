@@ -1,4 +1,3 @@
-// Archivo: indexScript.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
 
@@ -47,6 +46,7 @@ const fetchAllPosts = async () => {
             postsArray.forEach((post) => {
                 const listItem = document.createElement("div");
                 listItem.className = "post-item";
+                listItem.setAttribute("data-id", post.name); // Asignamos el id del post (nombre de la rama)
 
                 // Crear un elemento de imagen para el thumbnail
                 const imgElement = document.createElement("img");
@@ -59,15 +59,21 @@ const fetchAllPosts = async () => {
                 textElement.className = "post-name";
                 textElement.textContent = post.name;
 
-                // Crear un contenedor para el propietario (opcional)
+                // Crear un contenedor para el propietario
                 const ownerElement = document.createElement("span");
                 ownerElement.className = "post-owner";
-                ownerElement.textContent = `Por: ${post.owner}`;
+                ownerElement.textContent = post.owner; // Sin "Por:"
 
                 // Agregar los elementos al listItem
                 listItem.appendChild(imgElement);
                 listItem.appendChild(textElement);
                 listItem.appendChild(ownerElement);
+
+                // Manejador de evento de clic para redirigir con el parámetro id
+                listItem.addEventListener("click", () => {
+                    const postId = listItem.getAttribute("data-id"); // Obtener el id del post
+                    window.location.href = `https://lightningcube.netlify.app/submissionview?id=${postId}`; // Redirigir con el parámetro id
+                });
 
                 // Agregar el listItem al contenedor
                 container.appendChild(listItem);
