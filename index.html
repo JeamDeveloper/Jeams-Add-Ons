@@ -41,9 +41,9 @@
 </div>
 
 <!-- Contenedor de lista de submissions -->
-<div id="submissions-container">
-    <h2>Submissions</h2>
-    <div id="submissions-list">Cargando...</div>
+<div id="submissions-container" class="submissions-container">
+    <h2 class="submissions-title">Explora nuestras submissions</h2>
+    <div id="submissions-links" class="submissions-links">Cargando...</div>
 </div>
 
 <div class="social-container">
@@ -62,86 +62,85 @@
     </div>
 </div>
 
-<!-- Cargar script -->
-<script src="homescript.js"></script>
+<!-- Script de Firebase y el script mejorado -->
 <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+  import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  // Configuración de Firebase
   const firebaseConfig = {
     apiKey: "AIzaSyAPKImW3I6rYMZ95bY97KUo3qDLAFJF16Y",
     authDomain: "lightning-cube-3edce.firebaseapp.com",
     databaseURL: "https://lightning-cube-3edce-default-rtdb.firebaseio.com",
     projectId: "lightning-cube-3edce",
-    storageBucket: "lightning-cube-3edce.firebasestorage.app",
+    storageBucket: "lightning-cube-3edce.appspot.com",
     messagingSenderId: "833313409687",
     appId: "1:833313409687:web:bb34600cea6aeda0c177d2",
     measurementId: "G-9KTSWKDJ6F"
   };
 
-  // Initialize Firebase
+  // Inicializar Firebase
   const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-    const db = getDatabase();
+  const db = getDatabase();
 
-    // Función para obtener los datos de 'submissions'
-    async function obtenerSubmissions() {
-        const submissionsList = document.getElementById("submissions-list");
-        const dbRef = ref(db, "submissions");
+  // Función para obtener y mostrar submissions
+  async function obtenerSubmissions() {
+    const submissionsLinks = document.getElementById("submissions-links");
+    const dbRef = ref(db, "submissions");
 
-        submissionsList.textContent = "Cargando..."; // Texto mientras carga
+    submissionsLinks.textContent = "Cargando...";
 
-        try {
-            const snapshot = await get(child(dbRef, "/"));
-            if (snapshot.exists()) {
-                submissionsList.innerHTML = ""; // Limpiar mensaje de carga
-                let foundData = false;
+    try {
+      const snapshot = await get(child(dbRef, "/"));
+      
+      if (snapshot.exists()) {
+        submissionsLinks.innerHTML = "";
+        let foundData = false;
 
-                snapshot.forEach((categorySnapshot) => {
-                    const category = categorySnapshot.key;
-                    const categoryContainer = document.createElement("div");
-                    const categoryTitle = document.createElement("h3");
-                    const categoryList = document.createElement("ul");
+        snapshot.forEach((categorySnapshot) => {
+          const category = categorySnapshot.key;
+          const categoryContainer = document.createElement("div");
+          categoryContainer.classList.add("category-container");
 
-                    categoryTitle.textContent = category;
-                    categoryContainer.appendChild(categoryTitle);
-                    categoryContainer.appendChild(categoryList);
+          const categoryTitle = document.createElement("h3");
+          categoryTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+          categoryContainer.appendChild(categoryTitle);
 
-                    categorySnapshot.forEach((itemSnapshot) => {
-                        const postData = itemSnapshot.val();
-                        const postName = postData?.postname || "Sin nombre";
+          const categoryList = document.createElement("ul");
+          categoryList.classList.add("category-list");
 
-                        const listItem = document.createElement("li");
-                        listItem.textContent = postName;
-                        categoryList.appendChild(listItem);
-                        foundData = true;
-                    });
+          categorySnapshot.forEach((itemSnapshot) => {
+            const postData = itemSnapshot.val();
+            const postName = postData?.postname || "Sin nombre";
 
-                    if (categoryList.childElementCount > 0) {
-                        submissionsList.appendChild(categoryContainer);
-                    }
-                });
+            const listItem = document.createElement("li");
+            listItem.classList.add("post-item");
+            listItem.textContent = postName;
+            categoryList.appendChild(listItem);
+            foundData = true;
+          });
 
-                // Mostrar mensaje si no hay datos
-                if (!foundData) {
-                    submissionsList.textContent = "No se encontraron datos.";
-                }
-            } else {
-                submissionsList.textContent = "No se encontraron datos.";
-            }
-        } catch (error) {
-            console.error("Error al obtener datos:", error);
-            submissionsList.textContent = "No se pudo obtener los datos.";
+          if (categoryList.childElementCount > 0) {
+            categoryContainer.appendChild(categoryList);
+            submissionsLinks.appendChild(categoryContainer);
+          }
+        });
+
+        if (!foundData) {
+          submissionsLinks.textContent = "No se encontraron datos.";
         }
+      } else {
+        submissionsLinks.textContent = "No se encontraron datos.";
+      }
+    } catch (error) {
+      console.error("Error al obtener datos:", error);
+      submissionsLinks.textContent = "No se pudo obtener los datos.";
     }
+  }
 
-    // Llamada a la función
-    document.addEventListener("DOMContentLoaded", obtenerSubmissions);
+  // Ejecutar al cargar la página
+  document.addEventListener("DOMContentLoaded", obtenerSubmissions);
 </script>
 </body>
 
