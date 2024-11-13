@@ -264,13 +264,42 @@ body {
 }
 
 /* Estilo para los items de las publicaciones */
+/* Estilo para los contenedores de los posts */
 .post-item {
-    padding: 10px;
-    background-color: #2A2A2A;
-    border-radius: 5px;
-    margin: 5px 0;
-    text-align: center;
-    color: #FFF;
+    background-color: #2b2b2b; /* Gris más oscuro para los elementos de los posts */
+    color: #e0e0e0; /* Texto claro para mejorar la legibilidad en un fondo oscuro */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra sutil para dar profundidad */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efectos de transición */
+}
+
+.post-item:hover {
+    transform: translateY(-5px); /* Efecto de elevación al hacer hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Sombra más intensa al hacer hover */
+}
+
+/* Título de los posts */
+.post-title {
+    font-size: 1.5em; /* Título más grande */
+    font-weight: bold;
+    color: #f5f5f5; /* Blanco suave para el título */
+    margin-bottom: 10px;
+}
+
+/* Descripción de los posts */
+.post-description {
+    font-size: 1em; /* Texto más pequeño que el título */
+    color: #b0b0b0; /* Color de texto gris para la descripción */
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* Fecha y otros detalles */
+.post-meta {
+    font-size: 0.9em;
+    color: #777; /* Gris oscuro para la meta información */
 }
 
 /* Estilo para el texto de error al obtener datos */
