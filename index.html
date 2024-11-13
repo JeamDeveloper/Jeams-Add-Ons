@@ -1,147 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Inicio - Lightning Cube</title>
     <link rel="stylesheet" href="styles.css">
-    
-    <!-- Icono de la página -->
-    <link rel="icon" 
-          href="https://github.com/JeamDeveloper/Lightning-Cube/blob/b825d46606c034cd388afe4c455f28235f2bb9e6/resources/images/icons/MMAPlus%20Icon.PNG?raw=true" 
-          type="image/png">
-    
-    <!-- Descripción de la página -->
+    <link rel="icon" href="icon.png" type="image/png">
     <meta name="description" content="Página de inicio de Lightning Cube">
 </head>
-
 <body>
-    
-<!-- Barra de herramientas (toolbar) en la parte superior -->
 <div class="toolbar">
-    <a href="https://lightningcube.netlify.app" class="toolbar-link">
-        <img src="https://github.com/JeamDeveloper/Lightning-Cube/blob/b825d46606c034cd388afe4c455f28235f2bb9e6/resources/images/icons/MMAPlus%20Icon.PNG?raw=true" 
-             alt="LCLOGO" class="toolbar-logo">
+    <a href="/" class="toolbar-link">
+        <img src="icon.png" alt="Logo" class="toolbar-logo">
         <span class="toolbar-text">LIGHTNING CUBE</span>
     </a>
 </div>
-
 <div class="home-bg-page">
-    <!-- Contenedor con fondo oscuro y contenido dentro -->
     <div class="darker-page-content">
         <div class="container">
-            <!-- Título del addon -->
             <div class="page-title">Página Principal</div>
-
-            <!-- Texto descriptivo del addon -->
             <div class="default-texto">¡Descubre nuestros Add-Ons y Paquetes de texturas!</div>
         </div>
     </div>
 </div>
-
-<!-- Contenedor de lista de submissions -->
-<div id="submissions-container" class="submissions-container">
-    <h2 class="submissions-title">Explora nuestras submissions</h2>
-    <div id="submissions-links" class="submissions-links">Cargando...</div>
+<div id="submissions-container">
+    <h2>Submissions</h2>
+    <div id="submissions-links"></div>
 </div>
-
 <div class="social-container">
     <p class="social-title">Síguenos en nuestras redes sociales</p>
     <div class="social-links">
-        <a href="https://mcpedl.com/user/jeamdude/" class="social-link">MCPEDL</a>
-        <a href="https://www.instagram.com/jeamstudiosofi/" class="social-link">Instagram</a>
+        <a href="mcpedl" class="social-link">MCPEDL</a>
+        <a href="instagram" class="social-link">Instagram</a>
     </div>
 </div>
-
-<!-- Contenedor de los créditos (Fuera de mm-addon-page) -->
 <div class="credits">
-    <div class="credits-text">
-        <p>Lightning Cubes © 2024 JeamDude</p>
-        <p>Licensed under CC BY-NC-ND 4.0</p>
-    </div>
+    <p>© 2024 JeamDude</p>
 </div>
-
-<!-- Script de Firebase y el script mejorado -->
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-  import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
-
-  // Configuración de Firebase
-  const firebaseConfig = {
-    apiKey: "AIzaSyAPKImW3I6rYMZ95bY97KUo3qDLAFJF16Y",
-    authDomain: "lightning-cube-3edce.firebaseapp.com",
-    databaseURL: "https://lightning-cube-3edce-default-rtdb.firebaseio.com",
-    projectId: "lightning-cube-3edce",
-    storageBucket: "lightning-cube-3edce.appspot.com",
-    messagingSenderId: "833313409687",
-    appId: "1:833313409687:web:bb34600cea6aeda0c177d2",
-    measurementId: "G-9KTSWKDJ6F"
-  };
-
-  // Inicializar Firebase
-  const app = initializeApp(firebaseConfig);
-  const db = getDatabase();
-
-  // Función para obtener y mostrar submissions
-  async function obtenerSubmissions() {
-    const submissionsLinks = document.getElementById("submissions-links");
-    const dbRef = ref(db, "submissions");
-
-    submissionsLinks.textContent = "Cargando...";
-
-    try {
-      const snapshot = await get(child(dbRef, "/"));
-      
-      if (snapshot.exists()) {
-        submissionsLinks.innerHTML = "";
-        let foundData = false;
-
-        snapshot.forEach((categorySnapshot) => {
-          const category = categorySnapshot.key;
-          const categoryContainer = document.createElement("div");
-          categoryContainer.classList.add("category-container");
-
-          const categoryTitle = document.createElement("h3");
-          categoryTitle.textContent = category.charAt(0).toUpperCase() + category.slice(1);
-          categoryContainer.appendChild(categoryTitle);
-
-          const categoryList = document.createElement("ul");
-          categoryList.classList.add("category-list");
-
-          categorySnapshot.forEach((itemSnapshot) => {
-            const postData = itemSnapshot.val();
-            const postName = postData?.postname || "Sin nombre";
-
-            const listItem = document.createElement("li");
-            listItem.classList.add("post-item");
-            listItem.textContent = postName;
-            categoryList.appendChild(listItem);
-            foundData = true;
-          });
-
-          if (categoryList.childElementCount > 0) {
-            categoryContainer.appendChild(categoryList);
-            submissionsLinks.appendChild(categoryContainer);
-          }
-        });
-
-        if (!foundData) {
-          submissionsLinks.textContent = "No se encontraron datos.";
-        }
-      } else {
-        submissionsLinks.textContent = "No se encontraron datos.";
-      }
-    } catch (error) {
-      console.error("Error al obtener datos:", error);
-      submissionsLinks.textContent = "No se pudo obtener los datos.";
-    }
-  }
-
-  // Ejecutar al cargar la página
-  document.addEventListener("DOMContentLoaded", obtenerSubmissions);
-</script>
+<script src="firebaseConfig.js"></script>
+<script src="indexScript.js" type="module"></script>
 </body>
-
 </html>
