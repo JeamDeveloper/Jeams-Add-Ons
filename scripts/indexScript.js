@@ -24,21 +24,24 @@ const fetchAllPosts = async () => {
                 categorySnap.forEach((postSnap) => {
                     const postData = postSnap.val();
 
-                    // Obtener los nuevos childkeys: postname, owner, thumbnail, isExternalURL, ExternalURL
+                    // Verificar y asegurar que obtenemos los datos correctamente
                     const postName = postData?.postname || "Sin nombre";
                     const postOwner = postData?.owner || "Desconocido";
                     const postThumbnail = postData?.thumbnail || "https://via.placeholder.com/150"; // Placeholder si no hay thumbnail
                     const postDate = postData?.date || "2000-01-01"; // Aseguramos que tenga una fecha
-                    const isExternalURL = postData?.isExternalURL || false; // Verificamos si es URL externa
+                    const isExternalURL = postData?.isExternalURL === true; // Aseguramos que sea un valor booleano
                     const externalURL = postData?.ExternalURL || ""; // Obtenemos la URL externa si existe
+
+                    // Verificar los valores antes de agregarlos
+                    console.log(`isExternalURL: ${isExternalURL}, ExternalURL: ${externalURL}`);
 
                     postsArray.push({
                         name: postName,
                         owner: postOwner,
                         thumbnail: postThumbnail,
                         date: new Date(postDate),
-                        isExternalURL: isExternalURL,  // Agregamos esta propiedad
-                        externalURL: externalURL       // Agregamos esta propiedad
+                        isExternalURL: isExternalURL,  // Aseguramos que se captura correctamente
+                        externalURL: externalURL       // Aseguramos que se captura correctamente
                     });
                 });
             });
