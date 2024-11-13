@@ -1,57 +1,70 @@
-// Archivo: indexScript.js
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-import { getDatabase, ref, get, child, query, orderByChild } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+// Obtener la configuración de Firebase descifrada desde firebaseConfig.js
+const firebaseConfig = window.getFirebaseConfig();
 
-const app = initializeApp(window.getFirebaseConfig());
+// Inicializar Firebase
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, get } from "firebase/database";
+
+// Inicializar Firebase con la configuración descifrada
+const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-const fetchAllPosts = async () => {
-    const container = document.getElementById("submissions-list");
-    container.textContent = "Cargando...";
+// Función para cargar los ítems desde Firebase
+function loadItems() {
+    // Referencia a los datos en la base de datos
+    const submissionsRef = ref(db, 'submissions'); // Aquí 'submissions' es el nodo donde están tus ítems
 
-    try {
-        const dbRef = ref(db, "submissions");
-        const snapshot = await get(dbRef);
-
+    // Obtener los datos
+    get(submissionsRef).then((snapshot) => {
         if (snapshot.exists()) {
-            container.innerHTML = "";
-            const postsArray = [];
+            const items = snapshot.val();
+            const submissionsList = document.getElementById('submissions-list');
+            
+            // Iterar sobre los ítems y mostrarlos
+            Object.keys(items).forEach((key) => {
+                const item = items[key];
+                const postname = item.postname;
+                const thumbnail = item.thumbnail;
+                const owner = item.owner;
+                const branch = item.branch; // Asumimos que cada ítem tiene una rama asociada
 
-            // Iteramos por cada rama (texturepacks, addons, skinpacks, etc.)
-            snapshot.forEach((categorySnap) => {
-                categorySnap.forEach((postSnap) => {
-                    const postData = postSnap.val();
-                    const postName = postData?.postname || "Sin nombre";
-                    const postDate = postData?.date || "2000-01-01"; // Aseguramos que tenga una fecha
+                // Crear un nuevo elemento de la lista
+                const listItem = document.createElement('a');
+                listItem.classList.add('submission-item');
+                listItem.href = '#';
+                listItem.textContent = postname;
+                listItem.setAttribute('data-branch', branch);
+                listItem.setAttribute('data-thumbnail', thumbnail);
+                listItem.setAttribute('data-owner', owner);
+                listItem.setAttribute('data-postname', postname);
 
-                    postsArray.push({
-                        name: postName,
-                        date: new Date(postDate),
-                    });
-                });
+                // Añadir el ítem a la lista
+                submissionsList.appendChild(listItem);
             });
-
-            // Ordenamos los posts del más reciente al más antiguo
-            postsArray.sort((a, b) => b.date - a.date);
-
-            // Mostramos los posts
-            postsArray.forEach((post) => {
-                const listItem = document.createElement("div");
-                listItem.className = "post-item";
-                listItem.textContent = post.name;
-                container.appendChild(listItem);
-            });
-
-            if (postsArray.length === 0) {
-                container.textContent = "No se encontraron datos.";
-            }
         } else {
-            container.textContent = "No se encontraron datos.";
+            console.log("No se encontraron ítems.");
         }
-    } catch (error) {
-        console.error("Error al obtener datos:", error);
-        container.textContent = "No se pudo obtener los datos.";
-    }
-};
+    }).catch((error) => {
+        console.error("Error al obtener los datos de Firebase:", error);
+    });
+}
 
-document.addEventListener("DOMContentLoaded", fetchAllPosts);
+// Llamar a la función para cargar los ítems
+loadItems();
+
+// Añadir un evento de clic a los ítems de la lista
+document.getElementById('submissions-list').addEventListener('click', function(event) {
+    const item = event.target;
+    if (item.classList.contains('submission-item')) {
+        event.preventDefault();
+
+        // Obtener los datos del ítem
+        const branchName = item.getAttribute('data-branch');
+        const thumbnail = item.getAttribute('data-thumbnail');
+        const owner = item.getAttribute('data-owner');
+        const postname = item.getAttribute('data-postname');
+
+        // Redirigir a la página itemview con los parámetros en la URL
+        window.location.href = `https://lightningcube.netlify.app/itemview?branch=${branchName}&thumbnail=${encodeURIComponent(thumbnail)}&owner=${encodeURIComponent(owner)}&postname=${encodeURIComponent(postname)}`;
+    }
+});
