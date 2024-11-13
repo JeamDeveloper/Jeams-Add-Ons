@@ -206,7 +206,7 @@ body {
     align-items: center; /* Centrar los elementos horizontalmente */
     width: 100%;
     background-color: #141414; /* Fondo gris oscuro */
-    padding: 20px 0;
+    padding: 8px; /* Padding de 8px a todos los lados */
     justify-content: center; /* Centrado vertical de los elementos */
     border-top: 2px solid #FFD700; /* Línea dorada superior para separar visualmente */
 }
@@ -276,6 +276,7 @@ body {
     cursor: pointer;
     transition: transform 0.2s;
     text-decoration: none;
+    box-sizing: border-box; /* Incluir padding y márgenes dentro del tamaño */
 }
 
 .post-item:hover {
@@ -293,7 +294,8 @@ body {
 .post-image {
     width: 100%;
     height: auto;
-    object-fit: cover; /* Asegura que la imagen no se salga del contenedor */
+    object-fit: contain; /* Asegura que la imagen mantenga la proporción y no se recorte */
+    display: block; /* Elimina el espacio extra debajo de la imagen */
 }
 
 /* Título del Add-On */
@@ -302,6 +304,7 @@ body {
     font-size: 18px;
     font-weight: bold;
     margin-top: 10px;
+    margin-bottom: 2px; /* Separación de 2px con el propietario */
 }
 
 /* Owner (propietario) del Add-On */
