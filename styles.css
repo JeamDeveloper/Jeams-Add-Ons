@@ -199,20 +199,20 @@ body {
     height: 100%;
 }
 
-/* Contenedor de submissions */
-.submissions-container {
+/* Contenedor principal */
+.post-container {
     display: flex;
-    flex-direction: column; /* Alinear en columna para los elementos internos */
+    flex-direction: column; /* Alinear en columna */
     align-items: center; /* Centrar los elementos horizontalmente */
     width: 100%;
     background-color: #141414; /* Fondo gris oscuro */
     padding: 8px; /* Padding de 8px a todos los lados */
     justify-content: center; /* Centrado vertical de los elementos */
-    border-top: 2px solid #FFD700; /* Línea dorada superior para separar visualmente */
+    border-top: 2px solid #FFD700; /* Línea dorada superior */
 }
 
-/* Título "Explora nuestras submissions" */
-.submissions-title {
+/* Título */
+.post-title-container {
     font-family: 'MinecraftSeven'; /* Fuente MinecraftSeven */
     font-size: 14px; /* Tamaño de fuente */
     color: #FFFFFF; /* Color blanco para el texto */
@@ -220,50 +220,50 @@ body {
     margin: 0 16px 20px 16px; /* Margen de 16px a los lados y 20px abajo */
 }
 
-/* Contenedor para los enlaces de submissions (categorías) */
-.submissions-links {
+/* Contenedor de enlaces (categorías) */
+.post-links {
     display: flex;
-    flex-direction: column; /* Ordenar en columna para mejor legibilidad */
-    align-items: center; /* Centrar los elementos horizontalmente */
-    gap: 20px; /* Espacio entre las categorías */
+    flex-direction: column; /* Ordenar en columna */
+    align-items: center; /* Centrar los elementos */
+    gap: 20px; /* Espacio entre los enlaces */
     width: auto;
 }
 
-/* Estilo para los enlaces de las categorías (Texturepacks, Addons, etc.) */
-.submissions-link {
+/* Enlaces de categoría */
+.post-link {
     font-family: 'MinecraftSeven'; /* Fuente MinecraftSeven */
     font-size: 16px; /* Tamaño de fuente */
     color: #FFFFFF; /* Color blanco para los enlaces */
     text-decoration: none; /* Eliminar subrayado */
     text-align: center;
     padding: 10px 20px;
-    background-color: #2A2A2A; /* Fondo más oscuro para destacar */
+    background-color: #2A2A2A; /* Fondo oscuro */
     border-radius: 5px; /* Bordes redondeados */
-    width: 80%; /* Ancho limitado para mejor apariencia */
+    width: 80%; /* Ancho limitado */
 }
 
 /* Estilo cuando el enlace es presionado */
-.submissions-link:active {
-    color: #FFD700; /* Cambiar a color dorado cuando es presionado */
-    text-decoration: underline; /* Subrayar al presionar */
+.post-link:active {
+    color: #FFD700; /* Dorado al presionar */
+    text-decoration: underline; /* Subrayado */
 }
 
-/* Estilo cuando el enlace tiene foco (en dispositivos táctiles o teclado) */
-.submissions-link:focus-visible {
-    color: #FFD700; /* Cambiar a color dorado cuando tiene foco */
-    text-decoration: underline; /* Subrayar cuando tiene foco */
+/* Enlaces con foco */
+.post-link:focus-visible {
+    color: #FFD700; /* Dorado al tener foco */
+    text-decoration: underline; /* Subrayado */
 }
 
 /* Mensaje de "No se encontró contenido" */
 .no-content {
     font-family: 'MinecraftSeven'; /* Fuente MinecraftSeven */
     font-size: 14px; /* Tamaño de fuente */
-    color: #FF5733; /* Color naranja para resaltar */
-    text-align: center; /* Centrar el texto */
+    color: #FF5733; /* Color naranja */
+    text-align: center;
     padding: 10px 0;
 }
 
-/* Ajustes para el contenedor de las imágenes */
+/* Estilos para los posts */
 .post-item {
     display: flex;
     flex-direction: column;
@@ -279,8 +279,9 @@ body {
     box-sizing: border-box; /* Incluir padding y márgenes dentro del tamaño */
 }
 
+/* Efecto hover en los posts */
 .post-item:hover {
-    transform: scale(1.02); /* Efecto de escala al pasar el ratón */
+    transform: scale(1.02); /* Efecto de escala */
 }
 
 /* Contenedor de la imagen */
@@ -290,43 +291,42 @@ body {
     border-radius: 8px;
 }
 
-/* Ajustar imagen para que siempre esté dentro del contenedor */
+/* Ajustar la imagen */
 .post-image {
     width: 100%;
     height: auto;
-    object-fit: contain; /* Asegura que la imagen mantenga la proporción y no se recorte */
-    display: block; /* Elimina el espacio extra debajo de la imagen */
+    object-fit: contain; /* Mantener la proporción */
+    display: block; /* Eliminar espacio extra debajo */
 }
 
-/* Título del Add-On */
-.post-title {
-    color: #FFFFFF; /* Asegura que el título sea blanco */
+/* Título del post */
+.post-name {
+    color: #FFFFFF; /* Título en blanco */
     font-size: 18px;
     font-weight: bold;
     margin-top: 10px;
 }
 
-/* Owner (propietario) del Add-On */
+/* Propietario del post */
 .post-owner {
     color: #FFFFFF;
     font-size: 14px;
     margin-top: 5px;
 }
 
-/* Descripción de los posts */
+/* Descripción del post */
 .post-description {
     font-size: 1em; /* Texto más pequeño que el título */
-    color: #b0b0b0; /* Color de texto gris para la descripción */
+    color: #b0b0b0; /* Gris claro para la descripción */
     line-height: 1.5;
     margin-bottom: 15px;
 }
 
-/* Fecha y otros detalles */
+/* Fecha y meta información */
 .post-meta {
     font-size: 0.9em;
     color: #777; /* Gris oscuro para la meta información */
 }
-
 /* Estilo para el texto de error al obtener datos */
 .error-message {
     font-family: 'MinecraftSeven'; /* Fuente MinecraftSeven */
