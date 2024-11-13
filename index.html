@@ -7,40 +7,28 @@
     <title>Página de Inicio - Lightning Cube</title>
     <link rel="stylesheet" href="styles.css">
     
-    <!-- Icono de la página -->
-    <link rel="icon" 
-          href="https://github.com/JeamDeveloper/Lightning-Cube/blob/b825d46606c034cd388afe4c455f28235f2bb9e6/resources/images/icons/MMAPlus%20Icon.PNG?raw=true" 
-          type="image/png">
-    
-    <!-- Descripción de la página -->
+    <link rel="icon" href="https://github.com/JeamDeveloper/Lightning-Cube/blob/b825d46606c034cd388afe4c455f28235f2bb9e6/resources/images/icons/MMAPlus%20Icon.PNG?raw=true" type="image/png">
     <meta name="description" content="Página de inicio de Lightning Cube">
 </head>
 
 <body>
     
-<!-- Barra de herramientas (toolbar) en la parte superior -->
 <div class="toolbar">
     <a href="https://lightningcube.netlify.app" class="toolbar-link">
-        <img src="https://github.com/JeamDeveloper/Lightning-Cube/blob/b825d46606c034cd388afe4c455f28235f2bb9e6/resources/images/icons/MMAPlus%20Icon.PNG?raw=true" 
-             alt="LCLOGO" class="toolbar-logo">
+        <img src="https://github.com/JeamDeveloper/Lightning-Cube/blob/b825d46606c034cd388afe4c455f28235f2bb9e6/resources/images/icons/MMAPlus%20Icon.PNG?raw=true" alt="LCLOGO" class="toolbar-logo">
         <span class="toolbar-text">LIGHTNING CUBE</span>
     </a>
 </div>
 
 <div class="home-bg-page">
-    <!-- Contenedor con fondo oscuro y contenido dentro -->
     <div class="darker-page-content">
         <div class="container">
-            <!-- Título del addon -->
-            <div class="page-title">Pagina Principal</div>
-
-            <!-- Texto descriptivo del addon -->
+            <div class="page-title">Página Principal</div>
             <div class="default-texto">¡Descubre nuestros Add-Ons y Paquetes de texturas!</div>
         </div>
     </div>
 </div>
 
-<!-- Contenedor de lista de submissions -->
 <div id="submissions-container">
     <div id="submissions-list">Cargando...</div>
 </div>
@@ -53,7 +41,6 @@
     </div>
 </div>
 
-<!-- Contenedor de los créditos (Fuera de mm-addon-page) -->
 <div class="credits">
     <div class="credits-text">
         <p>Lightning Cubes © 2024 JeamDude</p>
@@ -61,8 +48,9 @@
     </div>
 </div>
 
-<!-- Cargar scripts -->
-<!-- Registrar el Service Worker desde scripts/sw.js -->
+<script src="scripts/firebaseConfig.js"></script>
+
+<!-- Cargar el Service Worker -->
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -76,12 +64,8 @@
     });
   }
 </script>
-<!-- Llamada al script de configuración de Firebase -->
-<script src="scripts/firebaseConfig.js"></script>
 
-<!-- Llamada al script de la página index con type module -->
 <script src="scripts/indexScript.js" type="module"></script>
 
-<body>
-
+</body>
 </html>
