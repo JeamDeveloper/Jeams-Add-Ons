@@ -13,61 +13,67 @@
 
 <body>
     
-<div class="toolbar">
-    <a href="https://lightningcube.netlify.app" class="toolbar-link">
-        <img src="https://github.com/JeamDeveloper/Lightning-Cube/blob/b825d46606c034cd388afe4c455f28235f2bb9e6/resources/images/icons/MMAPlus%20Icon.PNG?raw=true" alt="LCLOGO" class="toolbar-logo">
-        <span class="toolbar-text">LIGHTNING CUBE</span>
-    </a>
-</div>
+    <!-- Barra de herramientas (Toolbar) -->
+    <div class="toolbar">
+        <a href="https://lightningcube.netlify.app" class="toolbar-link">
+            <img src="https://github.com/JeamDeveloper/Lightning-Cube/blob/b825d46606c034cd388afe4c455f28235f2bb9e6/resources/images/icons/MMAPlus%20Icon.PNG?raw=true" alt="LCLOGO" class="toolbar-logo">
+            <span class="toolbar-text">LIGHTNING CUBE</span>
+        </a>
+    </div>
 
-<div class="home-bg-page">
-    <div class="darker-page-content">
-        <div class="container">
-            <div class="page-title">Página Principal</div>
-            <div class="default-texto">¡Descubre nuestros Add-Ons y Paquetes de texturas!</div>
+    <!-- Fondo de la página de inicio -->
+    <div class="home-bg-page">
+        <div class="darker-page-content">
+            <div class="container">
+                <div class="page-title">Página Principal</div>
+                <div class="default-texto">¡Descubre nuestros Add-Ons y Paquetes de texturas!</div>
+            </div>
         </div>
     </div>
-</div>
 
-<div id="submissions-container">
-    <div id="submissions-list">Cargando...</div>
-</div>
-
-<div class="social-container">
-    <p class="social-title">Síguenos en nuestras redes sociales</p>
-    <div class="social-links">
-        <a href="https://mcpedl.com/user/jeamdude/" class="social-link">MCPEDL</a>
-        <a href="https://www.instagram.com/jeamstudiosofi/" class="social-link">Instagram</a>
+    <!-- Contenedor de publicaciones de Add-Ons -->
+    <div id="submissions-container">
+        <div id="submissions-list">Cargando...</div>
     </div>
-</div>
 
-<div class="credits">
-    <div class="credits-text">
-        <p>Lightning Cubes © 2024 JeamDude</p>
-        <p>Licensed under CC BY-NC-ND 4.0</p>
+    <!-- Contenedor de redes sociales -->
+    <div class="social-container">
+        <p class="social-title">Síguenos en nuestras redes sociales</p>
+        <div class="social-links">
+            <a href="https://mcpedl.com/user/jeamdude/" class="social-link">MCPEDL</a>
+            <a href="https://www.instagram.com/jeamstudiosofi/" class="social-link">Instagram</a>
+        </div>
     </div>
-</div>
 
-<!-- Incluir la configuración de Firebase -->
-<script src="scripts/firebaseConfig.js"></script>
+    <!-- Créditos -->
+    <div class="credits">
+        <div class="credits-text">
+            <p>Lightning Cubes © 2024 JeamDude</p>
+            <p>Licensed under CC BY-NC-ND 4.0</p>
+        </div>
+    </div>
 
-<!-- Cargar el Service Worker -->
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('scripts/sw.js')
-        .then(registration => {
-          console.log('Service Worker registrado con éxito:', registration.scope);
-        })
-        .catch(error => {
-          console.log('Error al registrar el Service Worker:', error);
-        });
-    });
-  }
-</script>
+    <!-- Incluir la configuración de Firebase -->
+    <script src="scripts/firebaseConfig.js"></script>
 
-<!-- Tu script principal -->
-<script src="scripts/indexScript.js" type="module"></script>
+    <!-- Cargar el Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('scripts/sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registrado con éxito:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('Error al registrar el Service Worker:', error);
+                    });
+            });
+        }
+    </script>
+
+    <!-- Tu script principal -->
+    <script src="scripts/indexScript.js" type="module"></script>
 
 </body>
+
 </html>
