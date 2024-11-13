@@ -29,12 +29,16 @@ const fetchAllPosts = async () => {
                     const postOwner = postData?.owner || "Desconocido";
                     const postThumbnail = postData?.thumbnail || "https://via.placeholder.com/150"; // Placeholder si no hay thumbnail
                     const postDate = postData?.date || "2000-01-01"; // Aseguramos que tenga una fecha
+                    const isExternalURL = postData?.isExternalURL || false;
+                    const externalURL = postData?.ExternalURL || "";
 
                     postsArray.push({
                         name: postName,
                         owner: postOwner,
                         thumbnail: postThumbnail,
                         date: new Date(postDate),
+                        isExternalURL: isExternalURL,
+                        externalURL: externalURL,
                     });
                 });
             });
@@ -69,10 +73,16 @@ const fetchAllPosts = async () => {
                 listItem.appendChild(textElement);
                 listItem.appendChild(ownerElement);
 
-                // Manejador de evento de clic para redirigir con el parámetro id
+                // Manejador de evento de clic para redirigir
                 listItem.addEventListener("click", () => {
-                    const postId = listItem.getAttribute("data-id"); // Obtener el id del post
-                    window.location.href = `https://lightningcube.netlify.app/submissionview?id=${postId}`; // Redirigir con el parámetro id
+                    if (post.isExternalURL && post.externalURL) {
+                        // Si el post es externo, redirigir a la URL externa
+                        window.location.href = post.externalURL;
+                    } else {
+                        // Si no es externo, redirigir con el parámetro id
+                        const postId = listItem.getAttribute("data-id"); // Obtener el id del post
+                        window.location.href = `https://lightningcube.netlify.app/submissionview?id=${postId}`; // Redirigir con el parámetro id
+                    }
                 });
 
                 // Agregar el listItem al contenedor
