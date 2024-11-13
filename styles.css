@@ -300,11 +300,10 @@ body {
 
 /* Título del Add-On */
 .post-title {
-    color: #FFFFFF;
+    color: #FFFFFF; /* Asegura que el título sea blanco */
     font-size: 18px;
     font-weight: bold;
     margin-top: 10px;
-    margin-bottom: 2px; /* Separación de 2px con el propietario */
 }
 
 /* Owner (propietario) del Add-On */
@@ -312,6 +311,13 @@ body {
     color: #CCCCCC;
     font-size: 14px;
     margin-top: 5px;
+}
+
+/* Agregar la palabra "por" antes del nombre del propietario */
+.post-owner::before {
+    content: "por "; /* Insertar "por" antes del nombre del propietario */
+    color: #FFFFFF; /* Color de la palabra "por" */
+    font-weight: bold; /* Estilo para la palabra "por" */
 }
 
 /* Descripción de los posts */
