@@ -1,1 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title - Lightning Cube</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Icono de la página -->
+    <link rel="icon" 
+          href="https://github.com/JeamDeveloper/Lightning-Cube/blob/b825d46606c034cd388afe4c455f28235f2bb9e6/resources/images/icons/MMAPlus%20Icon.PNG?raw=true" 
+          type="image/png">
+    
+    <!-- Descripción de la página -->
+    <meta name="description" content="Página Oficial del Paquete de Texturas">
+</head>
+
+<body>
+    
+<!-- Barra de herramientas (toolbar) en la parte superior -->
+<div class="toolbar">
+    <a href="https://lightningcube.netlify.app" class="toolbar-link">
+        <img src="https://github.com/JeamDeveloper/Lightning-Cube/blob/b825d46606c034cd388afe4c455f28235f2bb9e6/resources/images/icons/MMAPlus%20Icon.PNG?raw=true" 
+             alt="LCLOGO" class="toolbar-logo">
+        <span class="toolbar-text">LIGHTNING CUBE</span>
+    </a>
+</div>
+    <div class="mm-addon-page">
+        <!-- Contenedor con fondo oscuro y contenido dentro -->
+        <div class="page-content">
+            <div class="container">
+                <!-- Título del addon -->
+                <div class="page-title">Title</div>
+
+                <!-- Descripción breve del addon -->
+                <div class="descripcion-breve">
+                  Un paquete de texturas útil para obtener ventaja en tus partidas de Murder Mystery.
+                </div>
+
+                <!-- Texto de advertencia -->
+                <p class="advertencia-texto highlighted-text">
+                  Uso bajo tu propio riesgo.
+                </p>
+
+                <!-- Botón de descarga -->
+                <div id="launcher_button" class="launcher_button">Descargar</div>
+            </div>
+        </div>
+    </div>
+
+<div class="social-container">
+    <p class="social-title">Síguenos en nuestras redes sociales</p>
+    <div class="social-links">
+        <a href="https://mcpedl.com/user/jeamdude/" class="social-link">MCPEDL</a>
+        <a href="https://www.instagram.com/jeamstudiosofi/" class="social-link">Instagram</a>
+    </div>
+</div>
+
+<!-- Contenedor de los créditos (Fuera de mm-addon-page) -->
+<div class="credits">
+    <div class="credits-text">
+        <p>Lightning Cubes © 2024 JeamDude</p>
+        <p>Licensed under CC BY-NC-ND 4.0</p>
+    </div>
+</div>
+
+    <!-- Cargar script -->
+    <script src="script.js"></script>
+    <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js').then(registration => {
+                console.log('Service Worker registrado con éxito:', registration);
+            }).catch(error => {
+                console.log('Error al registrar el Service Worker:', error);
+            });
+        });
+    }
+</script>
+</body>
+
+</html>
