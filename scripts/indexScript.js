@@ -32,9 +32,6 @@ const fetchAllPosts = async () => {
                     const isExternalURL = postData?.isExternalURL ?? false; // Usar el valor por defecto false si no está presente
                     const externalURL = postData?.ExternalURL || ""; // Obtenemos la URL externa si existe
 
-                    // Verificar si estamos obteniendo correctamente los datos
-                    console.log(`postName: ${postName}, isExternalURL: ${isExternalURL}, ExternalURL: ${externalURL}`);
-
                     postsArray.push({
                         name: postName,
                         owner: postOwner,
@@ -78,18 +75,13 @@ const fetchAllPosts = async () => {
 
                 // Manejador de evento de clic para redirigir con el parámetro id
                 listItem.addEventListener("click", () => {
-                    // Mostrar los valores en un alert (cuadro de diálogo)
-                    alert(`Clic en el post: ${post.name}\n\nisExternalURL: ${post.isExternalURL}\nexternalURL: ${post.externalURL}`);
-
                     // Verificar si isExternalURL es true y si existe ExternalURL
                     if (post.isExternalURL && post.externalURL) {
                         // Si es un enlace externo, redirigir a la URL externa
-                        alert(`Redirigiendo a URL externa: ${post.externalURL}`);
                         window.location.href = post.externalURL; // Redirigir a la URL externa
                     } else {
                         // Si no es externo, redirigir con el parámetro id
                         const postId = listItem.getAttribute("data-id");
-                        alert(`Redirigiendo al ID del post: ${postId}`);
                         window.location.href = `https://lightningcube.netlify.app/submissionview?id=${postId}`;
                     }
                 });
@@ -106,7 +98,6 @@ const fetchAllPosts = async () => {
             container.textContent = "No se encontraron datos.";
         }
     } catch (error) {
-        alert("Error al obtener los datos: " + error);
         container.textContent = "No se pudo obtener los datos.";
     }
 };
