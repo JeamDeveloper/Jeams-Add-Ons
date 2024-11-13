@@ -1,54 +1,90 @@
-// Obtener la configuración de Firebase descifrada desde firebaseConfig.js
-const firebaseConfig = window.getFirebaseConfig();
+// Archivo: indexScript.js
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
 
-// Inicializar Firebase
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, get } from "firebase/database";
-
-// Inicializar Firebase con la configuración descifrada
-const app = initializeApp(firebaseConfig);
+// Inicializar Firebase con la configuración de Firebase
+const app = initializeApp(window.getFirebaseConfig());
 const db = getDatabase(app);
 
-// Función para cargar los ítems desde Firebase
-function loadItems() {
-    // Referencia a los datos en la base de datos
-    const submissionsRef = ref(db, 'submissions'); // 'submissions' es el nodo donde están tus ítems
+// Función para obtener los posts de Firebase
+const fetchAllPosts = async () => {
+    const container = document.getElementById("submissions-list");
+    container.textContent = "Cargando...";
 
-    // Obtener los datos
-    get(submissionsRef).then((snapshot) => {
+    try {
+        // Referencia a la base de datos de submissions
+        const dbRef = ref(db, "submissions");
+        const snapshot = await get(dbRef);
+
         if (snapshot.exists()) {
-            const items = snapshot.val();
-            const submissionsList = document.getElementById('submissions-list');
-            submissionsList.innerHTML = ''; // Limpiar el contenido antes de cargar los nuevos ítems
+            container.innerHTML = "";
+            const postsArray = [];
 
-            // Iterar sobre las categorías (addons, texturepacks, etc.)
-            Object.keys(items).forEach((categoryKey) => {
-                const category = items[categoryKey]; // Esto es el objeto de cada categoría (addons, texturepacks, etc.)
-                
-                Object.keys(category).forEach((itemKey) => {
-                    const item = category[itemKey];
-                    const postname = item.postname;
+            // Iteramos sobre cada categoría de submissions (como texturepacks, addons, etc.)
+            snapshot.forEach((categorySnap) => {
+                categorySnap.forEach((postSnap) => {
+                    const postData = postSnap.val();
 
-                    // La rama es la clave de la categoría (ej. texturepack)
-                    const branch = categoryKey;
+                    // Obtener los nuevos childkeys: postname, owner, thumbnail
+                    const postName = postData?.postname || "Sin nombre";
+                    const postOwner = postData?.owner || "Desconocido";
+                    const postThumbnail = postData?.thumbnail || "https://via.placeholder.com/150"; // Placeholder si no hay thumbnail
+                    const postDate = postData?.date || "2000-01-01"; // Aseguramos que tenga una fecha
 
-                    // Crear un nuevo elemento de la lista que solo muestra el postname
-                    const listItem = document.createElement('a');
-                    listItem.classList.add('submission-item');
-                    listItem.href = `https://lightningcube.netlify.app/itemview?branch=${branch}&postname=${postname}`;
-                    listItem.textContent = postname; // Solo mostrar el postname
-
-                    // Añadir el ítem a la lista
-                    submissionsList.appendChild(listItem);
+                    postsArray.push({
+                        name: postName,
+                        owner: postOwner,
+                        thumbnail: postThumbnail,
+                        date: new Date(postDate),
+                    });
                 });
             });
-        } else {
-            console.log("No se encontraron ítems.");
-        }
-    }).catch((error) => {
-        console.error("Error al obtener los datos de Firebase:", error);
-    });
-}
 
-// Llamar a la función para cargar los ítems
-loadItems();
+            // Ordenar los posts por fecha (de más reciente a más antiguo)
+            postsArray.sort((a, b) => b.date - a.date);
+
+            // Mostrar los posts en el contenedor
+            postsArray.forEach((post) => {
+                const listItem = document.createElement("div");
+                listItem.className = "post-item";
+
+                // Crear un elemento de imagen para el thumbnail
+                const imgElement = document.createElement("img");
+                imgElement.src = post.thumbnail;
+                imgElement.alt = post.name;
+                imgElement.className = "post-thumbnail";
+
+                // Crear un elemento de texto para el nombre del post
+                const textElement = document.createElement("span");
+                textElement.className = "post-name";
+                textElement.textContent = post.name;
+
+                // Crear un contenedor para el propietario (opcional)
+                const ownerElement = document.createElement("span");
+                ownerElement.className = "post-owner";
+                ownerElement.textContent = `Por: ${post.owner}`;
+
+                // Agregar los elementos al listItem
+                listItem.appendChild(imgElement);
+                listItem.appendChild(textElement);
+                listItem.appendChild(ownerElement);
+
+                // Agregar el listItem al contenedor
+                container.appendChild(listItem);
+            });
+
+            // Mensaje si no hay datos
+            if (postsArray.length === 0) {
+                container.textContent = "No se encontraron datos.";
+            }
+        } else {
+            container.textContent = "No se encontraron datos.";
+        }
+    } catch (error) {
+        console.error("Error al obtener datos:", error);
+        container.textContent = "No se pudo obtener los datos.";
+    }
+};
+
+// Ejecutar la función al cargar la página
+document.addEventListener("DOMContentLoaded", fetchAllPosts);
