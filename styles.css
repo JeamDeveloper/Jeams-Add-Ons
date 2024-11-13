@@ -274,14 +274,8 @@ body {
     background-color: #1B1B1B;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.2s;
     text-decoration: none;
     box-sizing: border-box; /* Incluir padding y márgenes dentro del tamaño */
-}
-
-/* Efecto hover en los posts */
-.post-item:hover {
-    transform: scale(1.02); /* Efecto de escala */
 }
 
 /* Contenedor de la imagen */
