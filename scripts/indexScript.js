@@ -21,25 +21,31 @@ function loadItems() {
             const submissionsList = document.getElementById('submissions-list');
             
             // Iterar sobre los ítems y mostrarlos
-            Object.keys(items).forEach((key) => {
-                const item = items[key];
-                const postname = item.postname;
-                const thumbnail = item.thumbnail;
-                const owner = item.owner;
-                const branch = item.branch; // Asumimos que cada ítem tiene una rama asociada
+            Object.keys(items).forEach((categoryKey) => {
+                const category = items[categoryKey]; // Esto es el objeto de cada categoría (addons, texturepacks, etc.)
+                
+                Object.keys(category).forEach((itemKey) => {
+                    const item = category[itemKey];
+                    const postname = item.postname;
+                    const thumbnail = item.thumbnail;
+                    const owner = item.owner;
 
-                // Crear un nuevo elemento de la lista
-                const listItem = document.createElement('a');
-                listItem.classList.add('submission-item');
-                listItem.href = '#';
-                listItem.textContent = postname;
-                listItem.setAttribute('data-branch', branch);
-                listItem.setAttribute('data-thumbnail', thumbnail);
-                listItem.setAttribute('data-owner', owner);
-                listItem.setAttribute('data-postname', postname);
+                    // El 'categoryKey' o 'itemKey' es la rama (branch)
+                    const branch = categoryKey;
 
-                // Añadir el ítem a la lista
-                submissionsList.appendChild(listItem);
+                    // Crear un nuevo elemento de la lista
+                    const listItem = document.createElement('a');
+                    listItem.classList.add('submission-item');
+                    listItem.href = '#';
+                    listItem.textContent = postname;
+                    listItem.setAttribute('data-branch', branch); // Establecer la rama del ítem
+                    listItem.setAttribute('data-thumbnail', thumbnail);
+                    listItem.setAttribute('data-owner', owner);
+                    listItem.setAttribute('data-postname', postname);
+
+                    // Añadir el ítem a la lista
+                    submissionsList.appendChild(listItem);
+                });
             });
         } else {
             console.log("No se encontraron ítems.");
