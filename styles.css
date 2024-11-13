@@ -308,16 +308,9 @@ body {
 
 /* Owner (propietario) del Add-On */
 .post-owner {
-    color: #CCCCCC;
+    color: #FFFFFF;
     font-size: 14px;
     margin-top: 5px;
-}
-
-/* Agregar la palabra "por" antes del nombre del propietario */
-.post-owner::before {
-    content: "por "; /* Insertar "por" antes del nombre del propietario */
-    color: #FFFFFF; /* Color de la palabra "por" */
-    font-weight: bold; /* Estilo para la palabra "por" */
 }
 
 /* Descripción de los posts */
